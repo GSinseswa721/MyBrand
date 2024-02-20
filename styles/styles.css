@@ -1,0 +1,189 @@
+body{
+    background-color: #16132B;
+}
+.header{
+    display: flex;
+    flex-direction: row;
+    padding: 2rem;
+    width: 51%rem;
+    height: 2rem;
+    background-color:#16132B;
+    position: relative;
+    border-style: double;
+    border-color: #90f8c11c;
+}
+ul{
+    margin-top:  -0.1rem;
+    position: absolute;
+    padding-left:  35rem;
+}
+li{
+    display: inline;
+}
+a{
+    color: #ffffff;
+    text-decoration: none;
+}
+.logo{
+    width: 9rem;
+    height: 9rem;
+}
+.log{
+    position: absolute;
+    margin-left: 2rem;
+    top: -1rem;
+}
+.numbers{
+    color:#90F8C0;
+}
+.navbar a{
+     margin-right: 20px;
+}
+.homeimg{
+    width: 20rem;
+    height: 20rem;
+}
+.landing-right-side{
+    position:absolute;
+    display: flex;
+    flex-direction: row;
+    margin-left: 50rem;
+}
+.home-landing{
+    margin-top: 8rem;
+}
+.plus-landing{
+ margin: 2rem;
+}
+.plusimg{
+    width: 3rem;
+    height: 3rem;
+}
+.icon-sidebar{
+    width: 3rem;
+    height: 3rem;
+}
+.landing-body-section{
+    position: relative;
+}
+.landing-left-side-icon {
+  top: 10rem;
+  left: 5rem;
+
+}
+.landing-left-side-icon{
+    position:absolute;
+}
+.landing-left-side-icon img{
+margin-bottom: 1rem;
+}
+.landing-body-section-text{
+    position:absolute;
+    left: 4rem;
+}
+.landing-body-section-hello{
+color: #ffffff;
+width: 30rem;
+width: 40rem;
+background-color:#16132B;
+margin: 12rem;
+}
+.hello{
+    font-size: large;
+    top: 2rem;
+}
+.software{
+    font-size: x-large;
+}
+.landing-text-color{
+    color: #90F8C0;
+}
+.landing-body-section-botton{
+    position: absolute;
+    height: 2rem;
+    width: 5em;
+    background-color: #90F8C0;
+    border-radius: 10px;
+    top: 2rem;
+    margin-left: 12rem;
+    margin-top: 18rem;
+
+}
+.landing-body-section-botton a{
+    color: black;
+    margin-left: 1rem;
+    margin-top:3rem;
+    padding-top: 0.1rem;
+    align-items: center;
+}
+.about{
+    position:absolute;
+    font-size: larger;
+    color: #ffffff;
+    margin-top: 2rem;
+    margin-left: 15rem;
+    font-weight:300;
+
+}
+.horizontal-line{
+    background-color: #90F8C0;
+    width:3rem;
+    height: 2px;
+    margin-right: 10rem;
+    border-radius: 10px;
+}
+.about-right-side{
+    position:absolute;
+    display: flex;
+    flex-direction: row;
+    margin-left: 20rem;   
+}
+.about-plus{
+    margin: 2rem;
+    margin-left: 50rem;
+}
+.about-body-section{
+    position:absolute;
+    color: #ffffff;
+    font-size: larger;
+    margin-top: 10rem;
+    margin-right: 4rem;
+}
+.about-resume{
+    position:absolute;
+    width: 5rem;
+    height: 2rem;
+    background:#90F8C0;
+    color: #ffffff;
+    border-radius: 10px;
+    margin-top: 20rem;
+    margin-left: 20rem;
+    text-align:center;
+}
+.about-resume a{
+    position: absolute;
+    font-size: medium;
+    right: 0.5rem;
+    top: 0.5rem;
+}
+.skills-box{
+    position: relative;
+    height: 18rem;
+    width: 10rem;
+    background-color: #1F252E;
+    border-radius: 10px;
+    border-style: outset;
+    border-color: #90f8c17a;
+    color: #ffffff;
+    margin-left: 0.5rem;
+    margin-top: 8rem;
+}
+.inner-skills-circle{
+    position: absolute;
+    height: 7rem;
+    width: 7rem;
+    background: #16132B;
+    border-radius: 50%;
+    left: 20px;
+    bottom: 5rem;
+}
