@@ -9,7 +9,8 @@
 <body>
   <div class="header">
     <div class="log"><img src="../imgs/logo.svg" alt="" class="logo"></div>
-        <ul class="navbar">
+    <nav>
+      <ul class="navbar" id="menuList">
             <li><a href="/pages/index.html"><span class="numbers">01.</span> Home</a></li>
             <li><a href="/pages/about.html"><span class="numbers">02.</span> About</a></li>
             <li><a href="/pages/project.html"><span class="numbers">03.</span> Project</a></li>
@@ -17,6 +18,8 @@
             <li><a href="/pages/blog.html"><span class="numbers">05.</span> Blog</a></li>
             <li><a href="/pages/contact.html"><span class="numbers">06.</span> Contact</a></li>
         </ul>
+      </nav>
+       <img src="../imgs/f7_menu.svg" alt="" class="menu-icon" onclick="togglemenu()">
     </div>
   </header> 
   <div class="landing-body-section">
@@ -35,9 +38,9 @@
                 <pre class="about-body-section">
                 As an aspiring Software dev, I am passionate about
                  improving the lives of others through design and 
-             Development, Am constantly looking to learn new things. I
-              am dedicated to using my skills and expertise to make a 
-             meaningful contribution to growth and success of any 
+                Development, Am constantly looking to learn new things.
+              I am dedicated to using my skills and expertise to make a 
+              meaningful contribution to growth and success of any 
                             organization I am part of.
                 </pre>
             </div>
@@ -46,5 +49,19 @@
         <div class="about-plus"><img src="../imgs/Plus.svg" alt="" class="plusimg"></div>
     </div>
   </div> 
+  <script>
+
+    var menuList = document.getElementById("menuList");
+    menuList.style.maxHeight = "0px";
+
+    function togglemenu(){
+      if(menuList.style.maxHeight == "0px"){
+        menuList.style.maxHeight = "130px"
+      }
+      else {
+        menuList.style.maxHeight = "0px";
+      }
+    }
+</script>
 </body>
 </html>

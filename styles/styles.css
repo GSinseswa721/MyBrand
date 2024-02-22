@@ -1,6 +1,6 @@
 body{
     background-color: #16132B;
-    height: 200rem
+    height: 100rem
 }
 .header{
     display: flex;
@@ -73,6 +73,7 @@ a{
     position: relative;
 }
 .landing-left-side-icon {
+  position: absolute;
   top: 15rem;
   left: 2rem;
 
@@ -295,6 +296,7 @@ margin: 12rem;
 .heading-blog{
     font-size: large;
     font-weight: 300;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 .project-section-description-blog{
     position: absolute;
@@ -313,4 +315,294 @@ margin: 12rem;
     left: 40rem;
     top: 30rem;
     box-shadow:0px 0px 5px 2px hsl(150, 36%, 57%) ;   
+}
+input{
+    color:#ffffff;
+}
+.menu-icon{
+    position: absolute;
+    left: 25rem;
+    display: none;
+}
+
+
+@media only screen and (max-width:700px) {
+    
+    nav ul{
+        width: 100%;
+        background: #16132B;
+        position: absolute;
+        top: -10px;
+        right: 0;
+        z-index: 2;
+        margin-top: 5rem;
+        
+    }
+    nav ul li{
+        display: block;
+        padding-bottom: 5px;
+        margin-left: 25rem;
+    }
+    .menu-icon{
+    display: block;
+    }
+    #menuList{
+        overflow: hidden;
+        transition: 0.5s;
+    }
+    .icon-sidebar{
+        width: 25px;
+        height: 2rem;
+    }
+    .logo{
+        width: 10rem;
+        height: 7rem;
+        bottom: 2rem;
+    }
+
+    .landing-body-section-text{
+        position:absolute;
+        margin-left:-10rem;
+        margin-top: 4rem;
+    }
+    .landing-body-section-hello{
+        color: #ffffff;
+        width: 20rem;
+        background-color:#16132B;
+        margin-right:20rem;
+        }
+    .hello{
+            font-size: large;
+            left: 4rem;
+        }
+
+        .about-body-section{
+            position:absolute;
+            color: #ffffff;
+            font-size: small;
+            margin-top: 10rem;
+            left: 1px;
+        }
+        .landing-body-section{
+            position: absolute;
+        }
+        .landing-left-side-icon {
+          position: absolute;
+          top: 15rem;
+          left: 1rem;
+        
+        }
+        .landing-left-side-icon{
+            position:absolute;
+        }
+        .landing-left-side-icon img{
+        margin-bottom: 1rem;
+        }
+        .about-right-side{
+            position:absolute;
+            display: flex;
+            flex-direction: row;
+            margin-left: -4rem; 
+            top:8rem;  
+        }
+        .landing-left-side-icon {
+            position: absolute;
+            top: 15rem;
+            left: -0.1rem;
+          
+          }
+          .about-resume{
+            position:absolute;
+            width: 4rem;
+            height: 2rem;
+            background:#90F8C0;
+            color: #ffffff;
+            border-radius: 10px;
+            margin-top: 17rem;
+            margin-left: 15rem;
+            text-align:center;
+        }
+        .about-resume a{
+            position: absolute;
+            font-size: small;
+            right: 0.5rem;
+            top: 0.5rem;
+        }
+        .landing-right-side{
+            position:absolute;
+            display: flex;
+            flex-direction: row;
+            margin-left:4rem;
+        }
+        .homeimg{
+            width: 15rem;
+            height: 15rem;
+        }
+        .home-landing{
+            margin-top:24rem;
+        }
+        .landing-body-section-botton{
+            position: absolute;
+            height: 2rem;
+            width: 5em;
+            background-color: #90F8C0;
+            border-radius: 10px;
+            top: 2rem;
+            margin-left: 15rem;
+            margin-top: 34rem;
+        
+        }
+        .landing-body-section-botton a{
+            position: absolute;
+            color: black;
+            margin-left: 1rem;
+            margin-top:3rem;
+            bottom:9px;
+            
+        }
+        .plus-landing{
+            position: absolute;
+            margin: 2rem;
+            padding-top: 5rem;
+            right: -12rem;
+           }
+            .skills-section-languages{
+                display: flex;
+                flex-direction: column;
+           }
+           .skills-box{
+            position: relative;
+            height: 10rem;
+            width: 10rem;
+            background-color: #1F252E;
+            border-radius: 10px;
+            box-shadow:0px 0px 5px 2px hsl(150, 36%, 57%) ;
+            color: #ffffff;
+            margin-left: 12rem;
+            margin-top: 8rem;
+        }
+
+        .percentage-circle-skills{
+            position: absolute;
+            height: 6rem;
+            width: 6rem;
+            background: #1F252E;
+            border-radius: 50%;
+            margin: 0.5rem;
+        }
+        .percentage{
+            position: absolute;
+            margin: 2rem;
+            bottom:0.5rem;
+        }
+        .languages{
+            position: relative;
+            bottom: -0.4rem;
+            left: 1.5rem;
+            font-size: small;
+        }
+
+        .skills-plus{
+            position: absolute;
+            top: 8rem;
+            left: 50rem;
+        }
+        .inner-skills-circle{
+            position: absolute;
+            height: 7rem;
+            width: 7rem;
+            background-image: linear-gradient(to right, #213046, #202E53);
+            border-radius: 50%;
+            left: 30px;
+            bottom: 1.5rem;
+        }
+        .country{
+            position: absolute;
+            width: 22rem;
+            height: 10rem;
+            left: 20rem;
+            top: 15rem;
+        }
+        .project-section-description{
+            position: absolute;
+            width: 32rem;
+            height: 10rem;
+            background-color: #1F252E;
+            left: 29rem;
+            top: 18rem;
+            box-shadow:0px 0px 5px 2px hsl(150, 36%, 57%) ;
+        }
+        .description-text{
+            position: relative;
+            color: #ffffff;
+            font-size:smaller;
+            right: 7rem;
+            top: 1em;
+        }
+
+        .calculator{
+            position: absolute;
+            width: 12rem;
+            height: 6rem;
+            left: 5rem;
+            top: 30rem;   
+        }
+        .project-section-description-two{
+            position: absolute;
+            width: 15rem;
+            height: 10rem;
+            background-color: #1F252E;
+            left: 7rem;
+            top: 34rem;
+            box-shadow:0px 0px 5px 2px hsl(150, 36%, 57%) ; 
+        }
+        .plus-project{
+            position: absolute;
+            left: 20rem;
+            margin: 2rem;
+            padding-top: 5rem;
+        }
+        .project-heading{
+            position: absolute;
+            color: white;
+            top: 8rem;
+            left: 40rem;
+            font-size: small;
+        }
+        .project-container{
+            bottom: 30rem;
+        }
+        .description-text-blog{
+            position: relative;
+            color: #ffffff;
+            font-size:small;
+            right:6rem;
+            top: 1em; 
+            gap: 2rem;
+        }
+        .heading-blog{
+            font-size: large;
+            font-weight: 300;
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        }
+        .project-section-description-blog{
+            position: absolute;
+            width: 32rem;
+            height: 10rem;
+            background-color: #1F252E;
+            left: 40rem;
+            top: 15rem;
+            box-shadow:0px 0px 5px 2px hsl(150, 36%, 57%) ;
+        }
+        .project-section-description-two-blog{
+            position: absolute;
+            width: 32rem;
+            height: 10rem;
+            background-color: #1F252E;
+            left: 40rem;
+            top: 30rem;
+            box-shadow:0px 0px 5px 2px hsl(150, 36%, 57%) ;   
+        }
+        
+        
 }
