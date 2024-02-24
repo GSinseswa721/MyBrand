@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../styles/styles.css">
+</head>
+<body>
+  <div class="header">
+    <div class="log"><img src="../imgs/logo.svg" alt="" class="logo"></div>
+    <nav>
+      <ul class="navbar" id="menuList">
+        <li><a href="/index.html"><span class="numbers">01.</span> Home</a></li>
+        <li><a href="/about.html"><span class="numbers">02.</span> About</a></li>
+        <li><a href="/project.html"><span class="numbers">03.</span> Project</a></li>
+        <li><a href="/skills.html"><span class="numbers">04.</span> Skills</a></li>
+        <li><a href="/blog.html"><span class="numbers">05.</span> Blog</a></li>
+        <li><a href="/contact.html"><span class="numbers">06.</span> Contact</a></li>
+    </ul>
+      </nav>
+       <img src="../imgs/f7_menu.svg" alt="" class="menu-icon" onclick="togglemenu()">
+    </div>
+  </header> 
+  <div class="landing-body-section">
+    <div class="landing-left-side">
+      <div class="landing-left-side-icon">
+        <li><a href=""><img src="../imgs/Github.svg" alt="" class="icon-sidebar"></a></li><br>
+        <li><a href=""><img src="../imgs/linkedin.svg" alt="" class="icon-sidebar"></a></li><br>
+        <li><a href=""><img src="../imgs/Email.svg" alt="" class="icon-sidebar"></a></li><br>
+        <li><a href=""><img src="../imgs/Instagram.svg" alt="" class="icon-sidebar"></a></li>
+      </div>
+
+      <div>
+
+      </div>
+
+    <div class="landing-right-side">
+      <div class="project-heading">Contact <hr class="horizontal-line"></div>
+      hhhhhh
+      <div>
+        <form action="">
+          first name<input type="text" placeholder="First Name">
+        </form>
+      </div>
+    <div class="plus-landing"><img src="../imgs/Plus.svg" alt="" class="plusimg"></div>
+    </div>
+  </div> 
+  <script>
+
+    var menuList = document.getElementById("menuList");
+    menuList.style.maxHeight = "0px";
+
+    function togglemenu(){
+      if(menuList.style.maxHeight == "0px"){
+        menuList.style.maxHeight = "130px"
+      }
+      else {
+        menuList.style.maxHeight = "0px";
+      }
+    }
+</script>
+</body>
+</html>
