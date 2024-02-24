@@ -55,7 +55,8 @@ a{
     margin-left: 50rem;
 }
 .home-landing{
-    margin-top: 8rem;
+    margin-top: 15rem;
+    left: 3rem;
 }
 .plus-landing{
  margin: 2rem;
@@ -89,11 +90,13 @@ margin-bottom: 1rem;
     left: 4rem;
 }
 .landing-body-section-hello{
+position: absolute;
 color: #ffffff;
 width: 30rem;
 width: 40rem;
 background-color:#16132B;
 margin: 12rem;
+top:5rem;
 }
 .hello{
     font-size: large;
@@ -113,7 +116,7 @@ margin: 12rem;
     border-radius: 10px;
     top: 2rem;
     margin-left: 12rem;
-    margin-top: 18rem;
+    margin-top: 25rem;
 
 }
 .landing-body-section-botton a{
@@ -149,9 +152,9 @@ margin: 12rem;
 }
 .about-plus{
     position: absolute;
-    left: 45rem;
+    left: 52rem;
     margin: 2rem;
-    padding-top: 5rem;
+    padding-top: -rem;
 }
 .about-body-section{
     position:absolute;
@@ -222,8 +225,8 @@ margin: 12rem;
 }
 .skills-plus{
     position: absolute;
-    top: 8rem;
-    left: 50rem;
+    top: 1rem;
+    left: 55rem;
 }
 .country{
     position: absolute;
@@ -289,7 +292,7 @@ margin: 12rem;
     position: relative;
     color: #ffffff;
     font-size:large;
-    right:6rem;
+    right:5rem;
     top: 1em; 
     gap: 2rem;
 }
@@ -297,19 +300,31 @@ margin: 12rem;
     font-weight: 300;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
+.heading-blog-two{
+    position: absolute;
+    font-weight: 300;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    left: 3rem;
+    bottom: rem;
+}
 .project-section-description-blog{
     position: absolute;
     width: 32rem;
-    height: 10rem;
+    height: 14rem;
     background-color: #1F252E;
     left: 40rem;
     top: 15rem;
     box-shadow:0px 0px 5px 2px hsl(150, 36%, 57%) ;
 }
+.heading-blog-text{
+    position: absolute;
+    margin-bottom: 9rem;
+    left: -2rem;
+}
 .project-section-description-two-blog{
     position: absolute;
     width: 32rem;
-    height: 10rem;
+    height: 14rem;
     background-color: #1F252E;
     left: 40rem;
     top: 30rem;
@@ -322,6 +337,198 @@ input{
     position: absolute;
     left: 25rem;
     display: none;
+}
+.login-container{
+    position: absolute;
+    width: 25rem;
+    height: 35rem;
+    background-color: #16132B;
+    box-shadow:0px 0px 5px 2px hsl(150, 36%, 57%) ;  
+    margin: 1rem;
+    left: 25rem;
+    top: 3rem;
+}
+.sign-up{
+    color: white;
+    width: 25rem;
+    height: 3rem;
+    background-color: #16132B;
+    box-shadow:0px 0px 5px 2px hsl(150, 36%, 57%) ;
+}
+.signup{
+    position: absolute;
+    font-size: large;
+    margin: 10rem;
+    bottom: 23rem;
+}
+.sign{
+    position: absolute;
+    margin-top: 4rem;
+}
+input{
+background-color: #16132B;
+margin-top: 4rem;
+margin-left: 4rem;
+border-color: #90F8C0;
+border-style:solid;
+border-radius: 5px;
+}
+:placeholder-shown{
+    font-size: large;
+    color: #ffffff;
+}
+.sign-up-container{
+    position: absolute;
+    width: 7rem;
+    height: 2rem;
+    border-radius: 20px;
+    bottom: 5rem;
+    left: 7rem;
+    box-shadow: 0px 1px 1px hsl(300, 9%, 90%) ;
+    background-image: linear-gradient(to right, #90F8C0, #1F252E);
+}
+.sign-up-container-two{
+    position: absolute;
+    padding: 1rem;
+    top:-9px;
+    left: 4px;
+}
+.sign-in-container{
+    position: absolute;
+    width: 7rem;
+    height: 2rem;
+    border-radius: 20px;
+    bottom: 9rem;
+    left: 7rem;
+    box-shadow: 0px 1px 1px hsl(300, 9%, 90%) ;
+    background-image: linear-gradient(to right, #90F8C0, #1F252E);
+}
+.sign-in-container-two{
+    position: absolute;
+    padding: 1rem;
+    top:-10px;
+    left: 10px;
+}
+.forget-password{
+    position: absolute;
+    color: #ffffff;
+    margin-top: 17rem;
+    font-size: small;
+    left: 4rem;
+}
+.Plus-sign{
+    position: absolute;
+    left: 80rem;
+}
+.readmore{
+    position: absolute;
+    color: white;
+    height: 2rem;
+    width: 5rem;
+    background: #1F252E;
+    box-shadow: 0px 0px 2px 0px hsl(300, 9%, 90%);
+    margin-left: 2rem;
+    top:11rem;
+    border-radius: 10px;
+}
+.redMoreClient{
+    position: absolute;
+    padding: 3px;
+}
+.blog-icons{
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-left: 1rem;
+}
+.icon-blogs{
+    position: absolute;
+    left: 24rem;
+    gap: 2rem;
+    top: 11rem;
+}
+
+.user-userprofile-img{
+    width: 8rem;
+    height: 8rem;
+}
+.form-user-profile{ 
+    position: absolute;
+    width: 50rem;
+    height:25rem;
+    background-color: #16132B;
+    margin: 2rem;
+    margin-left:25rem; 
+    margin-top: 15rem;
+}
+.first-name{
+    height: 2rem;
+    width: 15rem;
+    border-radius: 10px;
+    margin-left: 2rem;
+}
+.form-user-profile{
+    display: flex;
+    flex-direction: column;
+ 
+}
+input{
+    background-color: #16132B;
+}
+.first-last-name{
+    position: absolute;
+    height: 2rem;
+    width: 15rem;
+    border-radius: 10px; 
+    margin-left: 20rem;
+    margin-bottom: 4rem; 
+}
+.email-user-profile{
+    position: absolute;
+    height: 2rem;
+    width: 33rem;
+    border-radius: 10px; 
+    margin-top:7rem; 
+    margin-left: 2rem; 
+}
+.address-user-profile{
+    position: absolute;
+    height: 2rem;
+    width: 33rem;
+    border-radius: 10px; 
+    margin-top:10rem; 
+    margin-left: 2rem;  
+}
+.submit-dashboard{
+    position:absolute;
+    width: 5rem;
+    height: 2rem;
+    background:#90F8C0;
+    color: #ffffff;
+    border-radius: 10px;
+    margin-top: 20rem;
+    margin-left: 20rem;
+    text-align:center;
+    position: absolute;
+    font-size: medium;
+    left: 20rem;
+    top: 9rem;
+}
+.submit-dashboard a {
+  position: absolute;  
+ text-decoration: none;
+ color: #ffffff;
+ bottom:9px;
+ left: 0.5rem;    
+}
+.contact-heading{
+    position: absolute;
+    color: white;
+    top: 8rem;
+    left: -10rem;
+    font-size: large;
+}
+.plus-contact{
+    left: 20rem;
 }
 
 
