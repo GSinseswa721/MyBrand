@@ -199,12 +199,17 @@ input{
     margin-top: 20rem;
     margin-left: 20rem;
     text-align:center;
-}
-.submit-dashboard {
     position: absolute;
     font-size: medium;
     left: 20rem;
     top: 8rem;
+}
+.submit-dashboard a {
+  position: absolute;  
+ text-decoration: none;
+ color: #ffffff;
+ bottom:9px;
+ left: 0.5rem;    
 }
 .heading-blog{
     position: absolute;
@@ -212,7 +217,7 @@ input{
     margin-top:-2rem;
 }
 .description-text-blog{
-margin-left: 3rem;
+margin-left:10rem;
 }
 .readmore-dashboard{
     position: absolute;
