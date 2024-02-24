@@ -1,0 +1,242 @@
+body{
+    position: relative;
+    background-color: #16132B;
+    
+}
+.sidebar{
+    position: absolute;
+    background-color:#1F252E;
+    height: 50rem;
+    width: 10rem;
+    box-shadow:0px 1px 1px hsl(300, 9%, 90%) ;
+    left: 0;
+    margin-top: -3rem;
+    margin-left: -1rem;
+    
+}
+.dashboard-text{
+    color: #ffffff;
+    font-size: larger;
+    margin-left:2rem;
+    gap: 1rem;
+}
+.nav-bar-dashboard{
+    height: 3rem;
+    width: 74.5rem;
+    background-color: #16132B;
+    box-shadow:0px 1px 1px hsl(300, 9%, 90%) ;
+    margin-left: 9rem;
+    margin-top: -1rem;
+}
+.welcome-dashboard{
+    margin-left:6rem;
+    color: #ffffff;
+    font-size: large;
+    margin-top: 4rem;
+}
+.notifaction-dashboard{
+    margin-left: 67rem;
+    margin-top: -2rem;
+}
+.notification-icon{
+    width: 2.5rem;
+    height: 2.5rem;
+}
+.icons-image-dashboard{
+    width: 2.5rem;
+    height:2.5rem ;
+}
+.logo-dashboard{
+    width: 8rem;
+    height: 8rem;
+}
+.icons-middle-dashboard{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    right: 4rem;
+    gap: 1rem;
+    bottom: 25rem;
+}
+.icon-bottom-dashboard{
+    position: absolute;
+    margin-top: 26rem;
+    right:4rem;
+}
+.container-message{
+    position: absolute;
+    width: 55rem;
+    height:30rem;
+    background-color: #16132B;
+    box-shadow:0px 0px 2px 0px hsl(300, 9%, 90%);
+    margin: 2rem;
+    margin-left:18rem;
+}
+.top-section-message{
+    color: #ffffff;
+    font-size: large;
+    width: 55rem;
+    height: 3rem;
+    background-color: #16132B;
+    box-shadow:0px 0px 2px 0px hsl(300, 9%, 90%);
+}
+.message-text{
+    position: absolute;
+    margin: 1rem;
+}
+.inner-container{
+    position: absolute;
+    width: 50rem;
+    height: 5rem;
+    background-color: #1F252E;
+    box-shadow:0px 0px 2px 0px hsl(300, 9%, 90%);
+    margin: 2rem;
+    bottom: 18rem;
+}
+.user-message{
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+}
+.message-username{
+    position: absolute;
+    left: 5rem;
+    top:-1rem;
+}
+.message-username-text{
+    font-size: larger;
+}
+.inner-container-two{
+    position: absolute;
+    width: 50rem;
+    height: 5rem;
+    background-color: #1F252E;
+    box-shadow:0px 0px 2px 0px hsl(300, 9%, 90%);
+    margin: 2rem;
+    bottom: 12rem;  
+}
+.inner-container-three{
+    position: absolute;
+    width: 50rem;
+    height: 5rem;
+    background-color: #1F252E;
+    box-shadow:0px 0px 2px 0px hsl(165, 90%, 90%);
+    margin: 2rem;
+    bottom: 6rem;  
+}
+.inner-container-four{
+    position: absolute;
+    width: 50rem;
+    height: 5rem;
+    background-color: #1F252E;
+    box-shadow:0px 0px 2px 0px hsl(300, 9%, 90%);
+    margin: 2rem;
+    bottom: -1rem; 
+}
+.user-userprofile{
+    position: absolute;
+    margin: 3rem;
+    left: 35rem;
+}
+.user-userprofile-img{
+    width: 8rem;
+    height: 8rem;
+}
+.form-user-profile{ 
+    position: absolute;
+    width: 50rem;
+    height:25rem;
+    background-color: #16132B;
+    margin: 2rem;
+    margin-left:25rem; 
+    margin-top: 15rem;
+}
+.first-name{
+    height: 2rem;
+    width: 15rem;
+    border-radius: 10px;
+    margin-left: 2rem;
+}
+.form-user-profile{
+    display: flex;
+    flex-direction: column;
+ 
+}
+input{
+    background-color: #16132B;
+}
+.first-last-name{
+    position: absolute;
+    height: 2rem;
+    width: 15rem;
+    border-radius: 10px; 
+    margin-left: 20rem;
+    margin-bottom: 4rem; 
+}
+.email-user-profile{
+    position: absolute;
+    height: 2rem;
+    width: 33rem;
+    border-radius: 10px; 
+    margin-top:3rem; 
+    margin-left: 2rem; 
+}
+.address-user-profile{
+    position: absolute;
+    height: 2rem;
+    width: 33rem;
+    border-radius: 10px; 
+    margin-top:6rem; 
+    margin-left: 2rem;  
+}
+.submit-dashboard{
+    position:absolute;
+    width: 5rem;
+    height: 2rem;
+    background:#90F8C0;
+    color: #ffffff;
+    border-radius: 10px;
+    margin-top: 20rem;
+    margin-left: 20rem;
+    text-align:center;
+}
+.submit-dashboard {
+    position: absolute;
+    font-size: medium;
+    left: 20rem;
+    top: 8rem;
+}
+.heading-blog{
+    position: absolute;
+    margin-left: 1rem;
+    margin-top:-2rem;
+}
+.description-text-blog{
+margin-left: 3rem;
+}
+.readmore-dashboard{
+    position: absolute;
+    color: white;
+    height: 2rem;
+    width: 5rem;
+    background: #1F252E;
+    box-shadow: 0px 0px 2px 0px hsl(300, 9%, 90%);
+    margin-left: 2rem;
+    top:7.5rem;
+    border-radius: 10px;
+}
+.redMore{
+    position: absolute;
+    padding: 3px;
+}
+.blog-dash-icons{
+    width: 2rem;
+    height: 2rem;
+    margin-left: 1rem;
+}
+.icon-blogs{
+    position: absolute;
+    left: 24rem;
+    gap: 2rem;
+    top: -1;
+}
