@@ -381,6 +381,20 @@ input{
     background-color: #16132B;
     box-shadow:0px 0px 5px 2px hsl(150, 36%, 57%) ;
 }
+.sign-in{
+    color: white;
+    width: 25rem;
+    height: 3rem;
+    left: 30rem;
+    background-color: #16132B;
+    box-shadow:0px 0px 5px 2px hsl(150, 36%, 57%) ;
+}
+.signin{
+    position: absolute;
+    left: 10rem;
+    top:1rem;
+    font-size: medium;
+}
 .signup{
     position: absolute;
     font-size: large;
