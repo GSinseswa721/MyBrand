@@ -1,12 +1,13 @@
 body{
     position: relative;
     background-color: #16132B;
+    height: 100rem;
     
 }
 .sidebar{
     position: absolute;
     background-color:#1F252E;
-    height: 50rem;
+    height: 100rem;
     width: 10rem;
     box-shadow:0px 1px 1px hsl(300, 9%, 90%) ;
     left: 0;
@@ -56,7 +57,7 @@ body{
     flex-direction: column;
     right: 4rem;
     gap: 1rem;
-    bottom: 25rem;
+    top: 14rem;
 }
 .icon-bottom-dashboard{
     position: absolute;
@@ -94,17 +95,36 @@ body{
     bottom: 18rem;
 }
 .user-message{
+    position: absolute;
     width: 4rem;
     height: 4rem;
     border-radius: 50%;
+    left: 3rem;
+    top:0.5rem;
 }
 .message-username{
     position: absolute;
     left: 5rem;
-    top:-1rem;
+    bottom:-15px;
+    width: 40rem;
+    height: 5rem;
+    background: #16132B;
+    border-radius: 2px;
+    box-shadow:0px 0px 2px 0px hsl(300, 9%, 90%);
 }
 .message-username-text{
-    font-size: larger;
+    position: absolute;
+    font-size: large;
+    right: 32rem;
+    width: 5rem;
+    height: 2rem;
+    border-radius: 4px;
+    background-color: #1F252E;
+}
+.message-username-text-two{
+    position: absolute;
+    right: 2rem;
+    top:-25px;
 }
 .inner-container-two{
     position: absolute;
@@ -217,7 +237,9 @@ input{
     margin-top:-2rem;
 }
 .description-text-blog{
-margin-left:10rem;
+position: absolute;
+margin-left:1rem;
+top: 20rem;
 }
 .readmore-dashboard{
     position: absolute;
@@ -244,4 +266,119 @@ margin-left:10rem;
     left: 24rem;
     gap: 2rem;
     top: -1;
+}
+.heading-blog-second{
+    position: absolute;
+    top: 3rem;
+    right:-2rem;
+}
+.project-section-description{
+    position: absolute;
+    width: 32rem;
+    height: 10rem;
+    background-color: #1F252E;
+    left: 29rem;
+    top: 18rem;
+    box-shadow:0px 0px 5px 2px hsl(150, 36%, 57%) ;
+}
+.countrytwo{
+    position: absolute;
+    width: 22rem;
+    height: 10rem;
+    left: 20rem;
+    top: 10rem;
+}
+.project-section-description-blog-two{
+    position: absolute;
+    width: 32rem;
+    height: 14rem;
+    background-color: #1F252E;
+    left: 40rem;
+    top: 10rem;
+    box-shadow:0px 0px 5px 2px hsl(150, 36%, 57%) ;
+}
+.create-a-blog{
+    position: absolute;
+    left: 66rem;
+    width: 6rem;
+    height: 2rem;
+    background-color: #90F8C0;
+    border-radius: 4px;
+    top: 6rem;
+}
+.create-a-blog a{
+ bottom: 5px;
+ position: absolute;
+}
+.create-dash{
+    position: absolute;
+    width: 3rem;
+    height: 3rem;
+    right: 7rem;
+    bottom: 10px;
+}
+.create-dashboard{
+    height: 25rem;
+    width: 40rem;
+    background-color: #16132B;
+    box-shadow:2px 1px 8px 2px hsl(138, 57%, 60%) ;
+    margin: 6rem;
+    margin-left: 20rem;    
+}
+.create-message{
+    position: absolute;
+    height: 4rem;
+    width: 35rem;
+    background-color: #16132B;
+    border-color: #90F8C0;
+    border-style:groove;
+    right:27rem;
+    top: 3rem;
+}
+.message{
+
+}
+.input-create{
+    position: absolute;
+    height: 10rem;
+    width: 35rem;
+    background-color: #16132B;
+    border-color: #90F8C0;
+    border-style:groove;
+    right:26rem;
+    top: 3rem;
+}
+.share{
+    position: absolute;
+    height: 2rem;
+    width: 5rem;
+    background-image: linear-gradient(to bottom, #90F8C0, #1F252E);
+    top: 15rem;
+    right:29rem;
+    border-radius: 2px;
+}
+.Cancel{
+    position: absolute;
+    height: 2rem;
+    width: 5rem;
+    background-image: linear-gradient(to bottom, #90F8C0, #1F252E);
+    top: 15rem;
+    right:37rem;
+    border-radius: 2px;
+}
+.share a{
+    position: absolute;
+    font-size: large;
+    color: #ffffff;
+    text-decoration: none;
+    left: 1rem;
+    bottom: 5px;
+}
+.Cancel a{
+    position: absolute;
+    font-size: large;
+    color: #ffffff;
+    text-decoration: none;
+    left: 1rem;
+    bottom: 5px;
 }
