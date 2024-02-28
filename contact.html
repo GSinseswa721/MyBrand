@@ -32,12 +32,14 @@
       </div>
       <div>
       <div class="form-user-profile">
-             <input type="text" name="" id="" placeholder="first name" class="first-name">
-             <input type="text" name="" id="" placeholder="Last name" class="first-last-name">
-             <input type="text" name="" id="" placeholder="Email" class="email-user-profile">
-             <input type="text" name="" id="" placeholder="Address" class="address-user-profile">
+        <form id="myForm" onsubmit="return validateForm()">
+          <input type="text" name="firstName" id="firstName" placeholder="First name" class="first-name">
+          <input type="text" name="lastName" id="lastName" placeholder="Last name" class="first-name"><br><br>
+          <input type="text" name="email" id="email" placeholder="Email" class="email-user-profile"><br><br>
+          <input type="text" name="address" id="address" placeholder="Address" class="address-user-profile"><br><br>
+          <input type="submit" value="Submit" class="submit-dashboard">
+      </form>
         </div>
-        <div class="submit-dashboard"><a href="" class="">SUBMIT</a></div>
       </div>
 
     <div class="landing-right-side">
@@ -58,6 +60,34 @@
         menuList.style.maxHeight = "0px";
       }
     }
+
+    function validateForm() {
+    
+    const firstName = document.getElementById("firstName").value.trim();
+    const lastName = document.getElementById("lastName").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const address = document.getElementById("address").value.trim();
+
+    
+    if (firstName === "" || lastName === "" || email === "" || address === "") {
+        alert("Please fill out all required fields.");
+        return false;
+    }
+
+    
+    if (!isValidEmail(email)) {
+        alert("Please enter a valid email address.");
+        return false;
+    }
+
+    return true;
+}
+
+function isValidEmail(email) {
+  
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+}
 </script>
 </body>
 </html>
