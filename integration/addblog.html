@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/integration/addblog.css">
+</head>
+<body>
+    
+
+    <div class="main--content">
+        <!-- Start Blog  -->
+        <main>
+          <h1>Blog</h1>
+          <div class="todo-app">
+            <button id="open-blog-form-btn" class="btn large-btn">
+             Add new Blog
+            </button>
+            <form class="blog-form hidden" id="blog-form">
+              <div class="blog-form-header">
+                <button id="close-blog-form-btn" class="close-blog-form-btn" type="button" aria-label="close">
+                </button>
+              </div>
+              <div class="blog-form-body">
+                <label class="blog-form-label" for="title-input">Title</label>
+                <input required type="text" class="form-control" id="title-input" value="" />
+                <input type="date" class="form-control" id="date-input" value="" hidden/>
+                <div class="title_error"></div>
+                <label class="blog-form-label" for="content-input">Content</label>
+                <textarea class="form-control" id="content-input" cols="30" rows="5"></textarea>
+                <label class="task-form-label" for="image-input">Image</label>
+                <input type="file" id="image-input" accept="Image/*" />
+              </div>
+              <div class="blog-form-footer">
+                <button id="add-blog" class="btn large-btn" type="submit" >
+                 CreateBlog
+                </button>
+              </div>
+            </form>
+          </div>
+        </main>
+        <div id="blogs-container"></div>
+        
+
+  <!-- End Blog  -->
+
+</div>
+</section>
+<script src="./blog.js"></script>
+<script src="./addblog.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastify-js/1.11.1/toastify.min.js"></script>
+
+
+</body>
+</html>

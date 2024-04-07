@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../integration/addblog.css">
+</head>
+<body>
+    
+<!-- blogs -->
+<h2 class="h2">Blogs</h2>
+<div id="blog-ta">
+<table id="blogs-table">
+    <tr>
+        <th>Title</th>
+        <th>Content</th>
+        <th class="pic">Image</th>
+        <th>Action</th>
+        
+    </tr>
+    <!-- Insert Content here using javascript -->
+    
+</table>
+</div>
+   <div id="no-blog" style="display: none;">
+    No blog available....
+   </div>  
+
+
+</section>
+
+<script>
+    
+    document.addEventListener("DOMContentLoaded", async() => {
+    const blogTable = document.querySelector("#blogs-table tbody");
+    const noblogmessage = document.querySelector('#no-blog');
+    console.log(noblogmessage);
+
+
+    try {
+      response = await fetch('https://brand-backend-zqib.onrender.com/blog',{
+        method: 'GET',
+        
+      });
+      if(!response.ok){
+        throw new Error(`failed to fetch ${response.status}`);
+
+      }
+      const responseData = await response.json();
+      console.log('response data:', responseData);
+      if(responseData.allblogs.length === 0){
+        noblogmessage.style.display = "block";
+      } else {
+        noblogmessage.style.display = "none";
+      
+
+      responseData.allblogs.forEach((blog)=>{
+        const row = document.createElement("tr");
+        row.innerHTML = `
+            <td>${blog.title}</td>
+            <td>${blog.content}</td>
+            <td class="pic">
+                <img src="https://brand-backend-zqib.onrender.com/blog/${blog.image}" alt="" style="height:200px;width:100px">
+
+            </td>
+            <td>
+                 
+                <button id="delete" style="background-color:blue;color:white;padding:6px;margin-left:25px;" onclick="navigateToEdit('${blog._id}')">Update</button>
+                <button id="delete" style="background-color:red;color:white;padding:6px;margin-left:25px;" onclick="deleteBlog('${blog._id}')">Delete</button>
+            </td>
+            
+        `;
+        blogTable.appendChild(row);
+      })}
+    } catch (error) {
+        console.error('Error fetching blogs:', error);
+        if (response) {
+            console.error('Response status:', response.status);
+        }
+    }
+  })
+   
+
+    
+
+const deleteBlog = async(id)=>{
+  
+      try{
+        const token = localStorage.getItem('token');
+        if(!token){
+          console.log("no token found");
+        }
+          const response = await fetch(`https://brand-backend-zqib.onrender.com/blog/${id}`, {
+            method: 'DELETE',
+            headers: {'Content-Types': "application/json"}
+          })
+
+        if(!response.ok)  {
+          return ("failed to delete")
+        }
+        location.reload();
+
+
+      }catch(error){
+        console.log(error);
+      }
+}
+
+//function to edit
+
+const navigateToEdit = (id)=>{
+  window.location.href = `editBlog.html?id=${id}`;
+  
+}
+
+
+</script>
+</body>
+</html>

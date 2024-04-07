@@ -2,6 +2,17 @@ body{
     background-color: #16132B;
     height: 100rem
 }
+.text{
+    position: relative;
+    color: #ffffff;
+    left: 50rem;
+    top:2rem;
+}
+#all-blog{
+    position: relative;
+    left: 3rem;
+
+}
 .header{
     display: flex;
     flex-direction: row;

@@ -2,17 +2,49 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width, initial-scale=1.0">
-    <title>Document</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Blog</title>
     <link rel="stylesheet" href="/styles/dashboard.css">
 </head>
 <body>
-<div class="create-dashboard">
-    <div class="">
-        <input type="text" placeholder="Type Something..." class="input-create">
-    </div>
-    <div class="share"><a href="">Share</a></div>
-    <div class="Cancel"><a href="/dashboard/blogs.html">Cancel</a></div>
-</div>
+    <h1>Create a Blog</h1>
+    <form id="create-blog" enctype="multipart/form-data">
+        <label for="blog-name">Name</label>
+        <input type="text" id="blog-name" name="blog-name" required>
+        <label for="blog-content">Content</label>
+        <input type="text" id="blog-content" name="blog-content" required>
+        <label for="blog-image">Image</label>
+        <input type="file" id="blog-image" name="blog-image" accept="image/*" required>
+        <button type="submit">Submit</button>
+    </form>
+
+    <script>
+        document.getElementById('create-blog').addEventListener('submit', async function(event) {
+            event.preventDefault();
+
+            const form = event.target;
+            const formData = new FormData(form);
+
+            try {
+                const response = await fetch('http://localhost:4000/blog/', {
+                    method: 'POST',
+                    body: formData
+                });
+
+                if (!response.ok) {
+                    const errorMessage = await response.text();
+                    throw new Error(`Failed to create blog: ${errorMessage}`);
+                }
+
+                const data = await response.json();
+                alert('Blog created successfully');
+                // Optionally redirect to another page
+                // window.location.href = '/dashboard/blogs.html';
+            } catch (error) {
+                console.error('Error creating blog:', error.message);
+                alert('Failed to create blog. Please try again.');
+            }
+        });
+    </script>
 </body>
 </html>
