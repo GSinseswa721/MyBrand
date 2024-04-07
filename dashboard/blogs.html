@@ -22,7 +22,7 @@
         <div class="notifaction-dashboard"><img src="../imgs/notification.svg" alt="" class="notification-icon"></div>
    </div> 
    <div>
-   <div class="create-a-blog"><img src="/imgs/create-dashboard.svg" alt="" class="create-dash"><a href="/dashboard/createblog.html">Create A blog</a></div>
+   <div class="create-a-blog"><img src="/imgs/create-dashboard.svg" alt="" class="create-dash"><a href="/integration/addblog.html">Create A blog</a></div>
    <div class="project-section">
     <div id="all-blog">
      
@@ -74,6 +74,7 @@
 <script>
 
 const allBlog = document.querySelector('.project-section');
+
 const getAll = async () => {
   try {
     const response = await fetch('https://brand-backend-zqib.onrender.com/blog');
@@ -83,26 +84,34 @@ const getAll = async () => {
     const data = await response.json();
     console.log(data);
     const blogs = data.data;
+
+    // Use map to generate an array of HTML strings for each blog
     const blogCards = blogs.map(blog => `
-      <img src="${blog.image}" alt="" class="countrytwo">
-      <div class="project-container-blogs">
-        <div class="project-section-description-blog-two">
-          <pre class="description-text-blog">
-            <span class="heading-blog">${blog.title}</span>
-            <span class="heading-blog-second">${blog.content}</span>
-          </pre>
-          <div class="icon-blogs">
-            <img src="../imgs/delete.svg" alt="" class="blog-dash-icons">
-            <img src="../imgs/update.svg" alt="" class="blog-dash-icons">
+      <div class="blog">
+        <img src="${blog.image}" alt="" class="country">
+        <div class="">
+          <div class="">
+            <pre class="">
+              <span class="heading-blog">${blog.title}</span>
+              <span class="heading">${blog.content}</span>
+            </pre>
+            <div class="icon-blogs">
+              <img src="../imgs/delete.svg" alt="" class="blog-dash-icons">
+              <img src="../imgs/update.svg" alt="" class="blog-dash-icons">
+            </div>
           </div>
         </div>
       </div>
     `);
-    allBlog.insertAdjacentHTML('beforeend', blogCards.join(''));
+
+    // Join all blog cards HTML strings and insert into the DOM
+    allBlog.innerHTML = blogCards.join('');
   } catch (error) {
     console.error('Error fetching data:', error);
   }
 };
+
+// Call the getAll function to fetch and render all blogs
 getAll();
 
 

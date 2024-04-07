@@ -319,9 +319,12 @@ top:5rem;
     position: relative;
     color: #ffffff;
     font-size:large;
-    right:5rem;
-    top: 1em; 
+    left:12rem;
+    top: 8em; 
     gap: 2rem;
+    width: 25rem;
+    height: 15rem;
+    background-color: #1F252E;
 }
 .heading-blog{
     font-weight: 300;
@@ -583,6 +586,15 @@ input{
 }
 .error {
     color: red;
+}
+img {
+    width:20rem;
+    height:10rem;
+
+}
+.blog-card{
+    position: relative;
+    margin-left: 30rem;
 }
 
 
