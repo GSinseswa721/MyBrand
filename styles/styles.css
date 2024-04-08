@@ -1,6 +1,7 @@
+
 body{
     background-color: #16132B;
-    height: 100rem
+    height: 100vh;
 }
 .text{
     position: relative;
@@ -8,11 +9,7 @@ body{
     left: 50rem;
     top:2rem;
 }
-#all-blog{
-    position: relative;
-    left: 3rem;
 
-}
 .header{
     display: flex;
     flex-direction: row;
@@ -278,11 +275,7 @@ top:5rem;
     right: 7rem;
     top: 1em;
 }
-.project-section{
-    gap: 3rem;
-    top: 20rem;
 
-}
 .calculator{
     position: absolute;
     width: 22rem;
@@ -306,7 +299,7 @@ top:5rem;
     padding-top: 5rem;
 }
 .project-heading{
-    position: absolute;
+
     color: white;
     top: 8rem;
     left: 40rem;
@@ -327,15 +320,10 @@ top:5rem;
     background-color: #1F252E;
 }
 .heading-blog{
-    font-weight: 300;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+
 }
-.heading-blog-two{
-    position: absolute;
-    font-weight: 300;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    left: 3rem;
-    bottom: 2rem;
+.heading-blog-second{
+
 }
 .project-section-description-blog{
     position: absolute;
@@ -347,9 +335,7 @@ top:5rem;
     box-shadow:0px 0px 5px 2px hsl(150, 36%, 57%) ;
 }
 .heading-blog-text{
-    position: absolute;
-    margin-bottom: 9rem;
-    left: -2rem;
+
 }
 .project-section-description-two-blog{
     position: absolute;
@@ -587,14 +573,30 @@ input{
 .error {
     color: red;
 }
-img {
-    width:20rem;
-    height:10rem;
+
+
+.project-section-description-blog-two{
+    display: flex;
+    flex-direction: column;
+}
+.project-section-button{
+    display: flex;
+    flex-direction: row;
 
 }
-.blog-card{
-    position: relative;
-    margin-left: 30rem;
+.project-container-blogs{
+  display: flex;
+  flex-direction: column;  
+}
+.blog-card {
+    display: flex;
+    align-items: center;
+    width: fit-content;
+}
+.blog-card  img{
+
+height: 15rem;
+width: 100%;
 }
 
 

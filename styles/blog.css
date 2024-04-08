@@ -1,0 +1,100 @@
+body{
+    position: relative;
+    background-color: #16132B;
+    height: 100rem;
+    color: #ffffff;
+    
+}
+.sidebar{
+    position: relative;
+    background-color:#1F252E;
+    height: 100rem;
+    width: 10rem;
+    box-shadow:0px 1px 1px hsl(300, 9%, 90%) ;
+    left: 0;
+
+    
+}
+.dashboard-text{
+    color: #ffffff;
+    font-size: larger;
+    
+    gap: 1rem;
+}
+.nav-bar-dashboard{
+    height: 3rem;
+    width: 74.5rem;
+    background-color: #16132B;
+    box-shadow:0px 1px 1px hsl(300, 9%, 90%) ;
+
+}
+.welcome-dashboard{
+    color: #ffffff;
+    font-size: large;
+}
+.notifaction-dashboard{
+
+}
+.notification-icon{
+    width: 2.5rem;
+    height: 2.5rem;
+}
+.icons-image-dashboard{
+    width: 2.5rem;
+    height:2.5rem ;
+}
+.logo-dashboard{
+    width: 8rem;
+    height: 8rem;
+}
+.icons-middle-dashboard{
+    display: flex;
+    flex-direction: column;
+    right: 4rem;
+    gap: 1rem;
+    top: 14rem;
+}
+.icon-bottom-dashboard{
+   
+    right:4rem;
+}
+.project-section{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+}
+.project-section-description-blog-two{
+    display: flex;
+    flex-direction: column;
+}
+.project-section-button{
+    display: flex;
+    flex-direction: row;
+
+}
+.project-container-blogs{
+  display: flex;
+  flex-direction: column;  
+}
+.blog-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: fit-content;
+}
+.blog-card  img{
+height: 13rem;
+width: 20rem;
+}
+.flex{
+    display: flex;
+
+}
+.flex.flex-col {
+    flex-direction: column;
+  }
+  .w-grid {
+    min-width: 20rem;
+    max-width: 30rem;
+  }
