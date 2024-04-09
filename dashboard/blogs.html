@@ -19,7 +19,7 @@
           Dashboard
         </div>
         <div class="icons-middle-dashboard">
-          <a href="/dashboard/home.html"><img src="../imgs/homeicon.svg" alt="" class="icons-image-dashboard"></a>
+          <a href="/integration/alluser.html"><img src="../imgs/homeicon.svg" alt="" class="icons-image-dashboard"></a>
           <a href="/dashboard/blogs.html"><img src="../imgs/blog.svg" alt="" class="icons-image-dashboard"></a>
           <a href="/dashboard/message.html"><img src="../imgs/message-icon.svg" alt=""
               class="icons-image-dashboard"></a>
@@ -41,7 +41,6 @@
       </div>
 
       <div class="create-a-blog">
-        <img src="/imgs/create-dashboard.svg" alt="" class="create-dash">
         <a href="/integration/addblog.html">Create A blog</a>
       </div>
 
@@ -80,14 +79,14 @@
   const createBlogCard = (blog) => {
     return `
       <div class="blog-card w-grid">
-        <span class="heading-blog">${blog.title}</span>
         <img src="${blog.image}" alt="" >
+        <span class="heading-blog">${blog.title}</span>
         <div class="project-container-blogs flex flex-col">
           <span class="heading-blog-second">${blog.content}</span>
          
           <div class="project-section-button">
-          <button style onclick="navigateToEdit('${blog._id}')">Update</button>
-          <button  onclick="deleteBlog('${blog._id}')">Delete</button>
+          <button class="update" onclick="navigateToEdit('${blog._id}')">Update</button>
+          <button class="delete" onclick="deleteBlog('${blog._id}')">Delete</button>
           </div>
           </div>
       </div>

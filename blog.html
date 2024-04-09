@@ -79,14 +79,14 @@
   const createBlogCard = (blog) => {
     return `
       <div class="blog-card w-grid">
-        <span class="heading-blog">${blog.title}</span>
+
         <img src="${blog.image}" alt="" >
+        <span class="heading-blog">${blog.title}</span>
         <div class="project-container-blogs flex flex-col">
           <span class="heading-blog-second">${blog.content}</span>
          
           <div class="project-section-button">
-          <button  onclick="navigateToEdit('${blog._id}')">Update</button>
-          <button  onclick="deleteBlog('${blog._id}')">Delete</button>
+          <button ">Read more</button>
           </div>
           </div>
       </div>

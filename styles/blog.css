@@ -59,10 +59,14 @@ body{
     right:4rem;
 }
 .project-section{
+    position: relative;
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
     justify-content: center;
+    top: 10rem;
+    left: 2rem;
+
 }
 .project-section-description-blog-two{
     display: flex;
@@ -71,17 +75,27 @@ body{
 .project-section-button{
     display: flex;
     flex-direction: row;
+    width: 2rem;
+    height: 2rem;
+    gap: 5px;
 
+    
 }
 .project-container-blogs{
   display: flex;
-  flex-direction: column;  
+  flex-direction: column; 
+  border: 1px solid #dedaf7;
+  background-color: #16132B;
+  height: 10rem;
+ 
 }
 .blog-card {
     display: flex;
     flex-direction: column;
     align-items: center;
     width: fit-content;
+    background-color:#1F252E;
+
 }
 .blog-card  img{
 height: 13rem;
@@ -98,3 +112,29 @@ width: 20rem;
     min-width: 20rem;
     max-width: 30rem;
   }
+.update{
+    background-color: rgb(233, 201, 141);
+    border-radius: 5px;
+}
+.delete{
+    background-color: rgb(228, 153, 153);
+    border-radius: 5px;
+}
+.heading-blog-second{
+    padding: 1rem;
+}
+.create-a-blog{
+    position: absolute;
+    left: 66rem;
+    width: 6rem;
+    height: 2rem;
+    background-color: #90F8C0;
+    border-radius: 4px;
+    top: 6rem;
+}
+.create-a-blog a{
+ bottom: 5px;
+ position: absolute;
+ text-decoration: none;
+ color: #dedaf7;
+}

@@ -11,7 +11,7 @@
     <form id="login-form">
         <h1>Sign Up</h1>
         <label for="name">Name:</label>
-        <input type="name" id="name" name="username" required>
+        <input type="name" id="name" name="name" required>
         <label for="email">Email:</label>
         <input type="email" id="email" name="email" required>
         <label for="password">Password:</label>
@@ -19,32 +19,118 @@
         <button type="submit">Sign Up</button>
       </form>
     <script type="text/javascript">
-        const form = document.getElementById("login-form");
-        form.addEventListener("submit", async (e) => {
-            e.preventDefault();
-            const formData = new FormData(form);
-            const userData = {
-                username: formData.get('username'),
-                email: formData.get('email'),
-                password: formData.get('password')
-            };
-            try {
-                const res = await fetch('https://brand-backend-zqib.onrender.com/user', {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json"
-                    },
-                    body: JSON.stringify(userData)
-                });
-                if (!res.ok) {
-                    throw new Error('Unable to sign up');
-                }
-                const resData = await res.json();
-                console.log(resData);
-                window.location.href = 'login.html';             } catch (error) {
-                console.error(error);
-            }
+const form = document.getElementById("login-form");
+form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    
+    // Get form data
+    const formData = new FormData(form);
+    const userData = {
+        username: formData.get('name'),
+        email: formData.get('email'),
+        password: formData.get('password')
+    };
+
+    try {
+        const authToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFubmV0dGVzaW5zZXN3YWlyYWtvemVAZ21haWwuY29tIiwibmFtZSI6IkdpZ2kiLCJpYXQiOjE3MTI2OTE3NzQsImV4cCI6MTcxMjY5NTM3NH0.6iEVx3vyzg8Gdzy-_xfPi7xES1ahmAz5m1dzpnj3n4Y'; // Replace with your actual authorization token
+
+        const res = await fetch('https://brand-backend-zqib.onrender.com/user', {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${authToken}`
+            },
+            body: JSON.stringify(userData)
         });
+
+        if (!res.ok) {
+            let errorMessage = 'Failed to sign up';
+            if (res.status === 400) {
+                const errorText = await res.text(); // Read error response as plain text
+                errorMessage = `Bad Request: ${errorText}`;
+            } else {
+                const errorData = await res.json(); // Attempt to parse JSON error response
+                if (errorData && errorData.message) {
+                    errorMessage = errorData.message;
+                }
+            }
+            throw new Error(errorMessage);
+        }
+
+        const resData = await res.json();
+        console.log('Sign-up successful:', resData);
+        window.location.href = 'login.html';
+    } catch (error) {
+        console.error('Error signing up:', error.message);
+        // Display error message to the user (e.g., show in a notification or alert)
+        alert('Error signing up: ' + error.message);
+    }
+});
+
+
+
+// const form = document.getElementById("login-form");
+// form.addEventListener("submit", async (e) => {
+//     e.preventDefault();
+    
+//     // Get form data
+//     const formData = new FormData(form);
+//     const userData = {
+//         username: formData.get('name'),
+//         email: formData.get('email'),
+//         password: formData.get('password')
+//     };
+
+//     try {
+//         const authToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFubmV0dGVzaW5zZXN3YWlyYWtvemVAZ21haWwuY29tIiwibmFtZSI6IkdpZ2kiLCJpYXQiOjE3MTI2OTE3NzQsImV4cCI6MTcxMjY5NTM3NH0.6iEVx3vyzg8Gdzy-_xfPi7xES1ahmAz5m1dzpnj3n4Y';
+
+//         const res = await fetch('https://brand-backend-zqib.onrender.com/user', {
+//             method: "POST",
+//             headers: {
+//                 "Content-Type": "application/json",
+//                 "Authorization": `Bearer ${authToken}` // Include Authorization header with token
+//             },
+//             body: JSON.stringify(userData)
+//         });
+
+//         if (!res.ok) {
+//             throw new Error('Unable to sign up');
+//         }
+
+//         const resData = await res.json();
+//         console.log(resData);
+//         window.location.href = 'login.html';
+//     } catch (error) {
+//         console.error('Error signing up:', error);
+//     }
+// });
+
+        // const form = document.getElementById("login-form");
+        // form.addEventListener("submit", async (e) => {
+        //     e.preventDefault();
+        //     const formData = new FormData(form);
+        //     const userData = {
+        //         username: formData.get('name'),
+        //         email: formData.get('email'),
+        //         password: formData.get('password')
+        //     };
+        //     try {
+        //         const res = await fetch('https://brand-backend-zqib.onrender.com/user', {
+        //             method: "POST",
+        //             headers: {
+        //                 "Content-Type": "application/json"
+        //             },
+        //             body: JSON.stringify(userData)
+        //         });
+        //         if (!res.ok) {
+        //             throw new Error('Unable to sign up');
+        //         }
+        //         const resData = await res.json();
+        //         console.log(resData);
+        //         window.location.href = 'login.html';             } catch (error) {
+        //         console.error(error);
+        //     }
+        // });
     </script>
 </body>
 </html>

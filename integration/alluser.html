@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User List</title>
+    <link rel="stylesheet" href="/integration/adduser.css">
+    <link rel="stylesheet" href="/styles/dashboard.css">
+</head>
+<body>
+    <div class="sidebar">
+        <div class="dashboard-text"><img src="../imgs/logo.svg" alt="" class="logo-dashboard"><br class="dashboard-text-style"> Dashboard</div>
+        <div class="icons-middle-dashboard">
+           <a href="/integration/alluser.html"><img src="../imgs/homeicon.svg" alt="" class="icons-image-dashboard"></a>
+           <a href="/dashboard/blogs.html"><img src="../imgs/blog.svg" alt="" class="icons-image-dashboard"></a>
+            <a href="/dashboard/message.html"><img src="../imgs/message-icon.svg" alt="" class="icons-image-dashboard"></a>
+        </div>
+        <div class="icon-bottom-dashboard"><a href="/index.html"><img src="../imgs/solar_logout-3-bold-duotone.svg" alt="" class="icons-image-dashboard"></a></div>
+   </div>
+   <div class="nav-bar-dashboard">
+        <div class="welcome-dashboard">Welcome </div>
+        <div class="notifaction-dashboard"><a href=""></a><img src="../imgs/notification.svg" alt="" class="notification-icon"></div>
+   </div> 
+
+    <div class="container">
+        <h1>User List</h1>
+        <ul id="user-list"></ul>
+    </div>
+</body>
+<script>
+
+document.addEventListener('DOMContentLoaded', getUsers);
+
+function getUsers() {
+    const authToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFubmV0dGVzaW5zZXN3YWlyYWtvemVAZ21haWwuY29tIiwibmFtZSI6IkdpZ2kiLCJpYXQiOjE3MTI2OTE3NzQsImV4cCI6MTcxMjY5NTM3NH0.6iEVx3vyzg8Gdzy-_xfPi7xES1ahmAz5m1dzpnj3n4Y'; // Replace with your actual authorization token
+
+    fetch('https://brand-backend-zqib.onrender.com/user', {
+        method: 'GET',
+        headers: {
+            'Authorization': `Bearer ${authToken}`,
+            'Content-Type': 'application/json'
+        }
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        return response.json();
+    })
+    .then(data => {
+        console.log(data); // Log the response data to inspect its structure
+        displayUsers(data.data); // Pass the array of users to displayUsers function
+    })
+    .catch(error => {
+        console.error('Error fetching users:', error);
+    });
+}
+
+function displayUsers(users) {
+    const userListElement = document.getElementById('user-list');
+
+    // Clear existing list items
+    userListElement.innerHTML = '';
+
+    if (Array.isArray(users)) {
+        // Iterate over each user in the array
+        users.forEach(user => {
+            const listItem = document.createElement('li');
+            listItem.textContent = `${user.name} (${user.email})`;
+            userListElement.appendChild(listItem);
+        });
+    } else {
+        console.error('Invalid data format: Expected an array of users');
+    }
+}
+
+
+
+// document.addEventListener('DOMContentLoaded', getUsers);
+
+// function getUsers() {
+//     const authToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFubmV0dGVzaW5zZXN3YWlyYWtvemVAZ21haWwuY29tIiwibmFtZSI6IkdpZ2kiLCJpYXQiOjE3MTI2ODI2NDEsImV4cCI6MTcxMjY4NjI0MX0.t8s4CtlMJu2TfM0N7QaAQStTcBjKAid8NtnxcZldDg4'; // Replace with your actual authorization token
+
+//     fetch('https://brand-backend-zqib.onrender.com/user', {
+//         method: 'GET',
+//         headers: {
+//             'Authorization': `Bearer ${authToken}`,
+//             'Content-Type': 'application/json'
+//         }
+//     })
+//     .then(response => {
+//         if (!response.ok) {
+//             throw new Error(`HTTP error! Status: ${response.status}`);
+//         }
+//         return response.json();
+//     })
+//     .then(data => {
+//         console.log(data); // Log the response data to inspect its structure
+//         displayUsers(data); // Pass the response data to displayUsers function
+//     })
+//     .catch(error => {
+//         console.error('Error fetching users:', error);
+//     });
+// }
+
+// function displayUsers(data) {
+//     const userListElement = document.getElementById('user-list');
+
+//     // Clear existing list items
+//     userListElement.innerHTML = '';
+
+//     if (Array.isArray(data)) {
+//         // Iterate over each user in the array
+//         data.forEach(user => {
+//             const listItem = document.createElement('li');
+//             // Set the text content of the list item to the user's name and email
+//             listItem.textContent = `${user.name} - ${user.email}`;
+//             userListElement.appendChild(listItem);
+//         });
+//     } else {
+//         console.error('Invalid data format: Expected an array of users');
+//     }
+// }
+
+
+</script>
+
+</html>

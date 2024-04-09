@@ -14,6 +14,7 @@
 body {
   position: relative;
   width: 100%;
+  color: #ffffff;
 }
 .welcome{
   text-align: center;
@@ -51,15 +52,15 @@ body {
   padding: 0.8rem 2rem;
   align-items: center;
   font-size: 1.2rem;
-  border: 0.1rem solid #d46e25;
+  border: 0.1rem solid #16132B;
   background: #ffeeff;
-  color: #d46e25;
+  color: #16132B;
   cursor: pointer;
   text-transform: capitalize;
 }
 
 .btn:hover {
-  background: #d46e25;
+  background: #16132B;
   color: #ffeeff;
 }
 .back {
@@ -572,15 +573,6 @@ input[type="file" i] {
     font-weight: bold;
   }
 
-.edit-btn, .delete-btn {
-  padding: 8px 16px;
-  font-size: 16px;
-  cursor: pointer;
-  border: none;
-  border-radius: 4px;
-  background-color: #d46e25;
-  color: #fff;
-}
 
 .btn.large-btn {
   padding: 12px 24px;
@@ -760,7 +752,9 @@ input[type="file" i] {
     font-weight: bold;
     
 }
-
+.add-blog-main{
+  padding-top: 10rem;
+}
 /* users */
 
 #myUsers, #all-messages{
