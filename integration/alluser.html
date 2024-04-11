@@ -13,7 +13,7 @@
         <div class="icons-middle-dashboard">
            <a href="/integration/alluser.html"><img src="../imgs/homeicon.svg" alt="" class="icons-image-dashboard"></a>
            <a href="/dashboard/blogs.html"><img src="../imgs/blog.svg" alt="" class="icons-image-dashboard"></a>
-            <a href="/dashboard/message.html"><img src="../imgs/message-icon.svg" alt="" class="icons-image-dashboard"></a>
+            
         </div>
         <div class="icon-bottom-dashboard"><a href="/index.html"><img src="../imgs/solar_logout-3-bold-duotone.svg" alt="" class="icons-image-dashboard"></a></div>
    </div>
@@ -32,7 +32,7 @@
 document.addEventListener('DOMContentLoaded', getUsers);
 
 function getUsers() {
-    const authToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFubmV0dGVzaW5zZXN3YWlyYWtvemVAZ21haWwuY29tIiwibmFtZSI6IkdpZ2kiLCJpYXQiOjE3MTI2OTE3NzQsImV4cCI6MTcxMjY5NTM3NH0.6iEVx3vyzg8Gdzy-_xfPi7xES1ahmAz5m1dzpnj3n4Y'; // Replace with your actual authorization token
+    const authToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFubmV0dGVzaW5zZXN3YWlyYWtvemVAZ21haWwuY29tIiwibmFtZSI6IkdpZ2kiLCJpYXQiOjE3MTI3MzI0ODAsImV4cCI6MTcxMjczNjA4MH0.ut2aYTOaGYZea0c0TSbDtT4LYSPOedxAM70HIrtpObs'; // Replace with your actual authorization token
 
     fetch('https://brand-backend-zqib.onrender.com/user', {
         method: 'GET',

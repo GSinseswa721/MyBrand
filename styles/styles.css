@@ -501,9 +501,15 @@ border-radius: 5px;
     margin-top: 15rem;
 }
 .first-name{
-    height: 2rem;
+    /* height: 2rem;
     width: 15rem;
     border-radius: 10px;
+    margin-left: 2rem; */
+    
+    height: 2rem;
+    width: 33rem;
+    border-radius: 10px; 
+    margin-top:2rem; 
     margin-left: 2rem;
 }
 .form-user-profile{
@@ -532,10 +538,10 @@ input{
 }
 .address-user-profile{
     position: absolute;
-    height: 2rem;
+    height: 5rem;
     width: 33rem;
-    border-radius: 10px; 
-    margin-top:5rem; 
+    border-radius: 3px; 
+    margin-top:1rem; 
     margin-left: 2rem;  
 }
 .submit-dashboard{
@@ -940,7 +946,7 @@ width: 100%;
         .first-last-name{
             height: 1rem;
             width: 8rem;
-            border-radius: 10px;
+            border-radius: 5px;
             right: 4rem;
  
         }

@@ -138,7 +138,7 @@ a {
 
  .main--content {
   position: absolute;
-  top: 0;
+  top: 10rem;
   right: 0;
   height: 100%;
   width: calc(100% - 300px);
@@ -596,12 +596,13 @@ input[type="file" i] {
 }
 
 .blog-form-body {
-  margin-top: 10px;
+  margin-top: 2px;
 }
 
 .blog-form-label {
   display: block;
   margin-bottom: 5px;
+  color: white;
 }
 
 .form-control {
@@ -610,6 +611,11 @@ input[type="file" i] {
   font-size: 16px;
   border: 1px solid #ccc;
   border-radius: 4px;
+  color: white;
+  background-color: #16132B;
+}
+#content-inputs{
+  background-color: #16132B;
 }
 
 .blog-form-footer {
@@ -631,7 +637,7 @@ input[type="file" i] {
 /* Blogs container */
 #blogs-container {
   margin-top: 20px;
-  border-top: 1px solid #ccc;
+  /* border-top: 1px solid #ccc; */
   padding-top: 20px;
 }
 

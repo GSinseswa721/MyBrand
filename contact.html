@@ -33,10 +33,10 @@
       <div>
       <div class="form-user-profile">
         <form id="myForm" onsubmit="return validateForm()">
-          <input type="text" name="firstName" id="firstName" placeholder="First name" class="first-name">
-          <input type="text" name="lastName" id="lastName" placeholder="Last name" class="first-name"><br><br>
-          <input type="text" name="email" id="email" placeholder="Email" class="email-user-profile"><br><br>
-          <input type="text" name="address" id="address" placeholder="Address" class="address-user-profile"><br><br>
+          <input type="text" name="firstName" id="firstName" placeholder="name" class="first-name"><br><br>
+          <input type="text" name="lastName" id="lastName" placeholder="Subject" class="first-name"><br><br>
+      
+          <input type="text" name="address" id="message" placeholder="Message" class="address-user-profile"><br><br>
           <input type="submit" value="Submit" class="submit-dashboard">
       </form>
         </div>
@@ -89,5 +89,6 @@ function isValidEmail(email) {
     return emailRegex.test(email);
 }
 </script>
+<script src="/emai.js"></script>
 </body>
 </html>

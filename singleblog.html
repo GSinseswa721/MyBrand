@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>blog page</title>
+    <!--link to css only-->
+    <link rel="stylesheet" href="/singleblog.css">
+    <link rel="stylesheet" href="/styles/styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastify-js/1.11.1/toastify.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;1,100&display=swap" rel="stylesheet">
+</head>
+</head>
+<body >
+  <div class="header">
+    <div class="log"><img src="../imgs/logo.svg" alt="" class="logo"></div>
+    <nav>
+      <ul class="navbar" id="menuList">
+            <li><a href="/index.html"><span class="numbers">01.</span> Home</a></li>
+            <li><a href="/about.html"><span class="numbers">02.</span> About</a></li>
+            <li><a href="/project.html"><span class="numbers">03.</span> Project</a></li>
+            <li><a href="/skills.html"><span class="numbers">04.</span> Skills</a></li>
+            <li><a href="/blog.html"><span class="numbers">05.</span> Blog</a></li>
+            <li><a href="/contact.html"><span class="numbers">06.</span> Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+
+
+    
+  <div id="toast-container" class="toast-container"></div>
+ 
+    <!--The main section-->
+   <div id="single-blog">
+     <!-- <a  href="../index.html"><img src="../images/back.png"></a> -->
+      <div id="title">
+
+      </div>
+      
+      <div id="blog-image">
+        <p><span style="color:black">By:</span> <a id="author"></a>
+            </p>
+            <p><span style="color:black">PublishedAt:</span> <a id="date"></a></p>
+        
+        
+      </div>
+      <div id="content">
+
+      </div>
+
+      
+   </div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastify-js/1.11.1/toastify.min.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded",async()=>{
+   try{
+    const queryParams = new URLSearchParams(window.location.search);
+    const id = queryParams.get("id");
+    const blogContainer = document.getElementById('blog-container');
+      const response = await fetch(`https://brand-backend-zqib.onrender.com/blog/${id}`,{
+        method: 'GET',
+        
+      })
+
+      console.log(response);
+      if(!response.ok){
+        throw new Error(`failed to fetch`);
+      }
+
+    const blogData = await response.json();
+     const blogObj = blogData.data;
+      console.log(blogData);
+
+    document.getElementById("title").innerText = blogObj.title;
+      // document.getElementById("author").innerText = blogObj.author;
+    document.getElementById("content").innerText = blogObj.content;
+    // //   // document.getElementById("date").innerText = new Date(blogObj.publishedDate).toLocaleDateString('en-US');
+    const blogImage = document.getElementById('blog-image');
+    const imageElement = document.createElement('img');
+    imageElement.src = `${blogObj.image}`;
+      blogImage.appendChild(imageElement);
+    }catch(error){
+       console.log(error);
+    }
+    
+  });
+// 
+
+</script>
+
+</body>
+</html>

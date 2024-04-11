@@ -28,7 +28,7 @@ console.log(resData)
 
 const token = resData.token
 localStorage.setItem('token',token)
-window.location.href='home.html'
+window.location.href='/integration/alluser.html'
 
 } catch (error) {
   console.log({error:error.message})

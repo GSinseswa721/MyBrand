@@ -30,19 +30,19 @@ form.addEventListener("submit", async (e) => {
         email: formData.get('email'),
         password: formData.get('password')
     };
-
+console.log(userData)
     try {
         const authToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFubmV0dGVzaW5zZXN3YWlyYWtvemVAZ21haWwuY29tIiwibmFtZSI6IkdpZ2kiLCJpYXQiOjE3MTI2OTE3NzQsImV4cCI6MTcxMjY5NTM3NH0.6iEVx3vyzg8Gdzy-_xfPi7xES1ahmAz5m1dzpnj3n4Y'; // Replace with your actual authorization token
 
-        const res = await fetch('https://brand-backend-zqib.onrender.com/user', {
+        const response = await fetch('http://localhost:4000/user/signup', {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
-                "Authorization": `Bearer ${authToken}`
+                // "Authorization": `Bearer ${authToken}`
             },
             body: JSON.stringify(userData)
         });
-
+console.log(response)
         if (!res.ok) {
             let errorMessage = 'Failed to sign up';
             if (res.status === 400) {

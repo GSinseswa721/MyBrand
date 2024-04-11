@@ -6,7 +6,7 @@ body{
 }
 .sidebar{
     position: absolute;
-    background-color:#1F252E;
+    background-color:black;
     height: 100rem;
     width: 10rem;
     box-shadow:0px 1px 1px hsl(300, 9%, 90%) ;
@@ -15,6 +15,12 @@ body{
     margin-left: -1rem;
     
 }
+
+.icons-dashboard{
+    position: absolute;
+    margin-bottom: 20rem;
+    left: 20rem;
+  }
 .dashboard-text{
     color: #ffffff;
     font-size: larger;
@@ -22,7 +28,7 @@ body{
     gap: 1rem;
 }
 .nav-bar-dashboard{
-    height: 3rem;
+    height: 4rem;
     width: 74.5rem;
     background-color: #16132B;
     box-shadow:0px 1px 1px hsl(300, 9%, 90%) ;
