@@ -3,21 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>blog page</title>
-    <!--link to css only-->
+    <title>Blog Page</title>
     <link rel="stylesheet" href="/singleblog.css">
     <link rel="stylesheet" href="/styles/styles.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastify-js/1.11.1/toastify.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;1,100&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;1,100&display=swap" rel="stylesheet">
 </head>
-</head>
-<body >
-  <div class="header">
+<body>
+
+<div class="header">
     <div class="log"><img src="../imgs/logo.svg" alt="" class="logo"></div>
     <nav>
-      <ul class="navbar" id="menuList">
+        <ul class="navbar" id="menuList">
             <li><a href="/index.html"><span class="numbers">01.</span> Home</a></li>
             <li><a href="/about.html"><span class="numbers">02.</span> About</a></li>
             <li><a href="/project.html"><span class="numbers">03.</span> Project</a></li>
@@ -25,69 +23,166 @@
             <li><a href="/blog.html"><span class="numbers">05.</span> Blog</a></li>
             <li><a href="/contact.html"><span class="numbers">06.</span> Contact</a></li>
         </ul>
-      </nav>
+    </nav>
+</div>
+
+<div id="toast-container" class="toast-container"></div>
+
+<div id="single-blog">
+    <div id="title"></div>
+    <div id="blog-image"></div>
+    <p><span style="color: black;"></span> <a id="author"></a></p>
+    <p><span style="color: black;"></span> <a id="date"></a></p>
+    <div id="content"></div>
+
+    <!-- Comment Section -->
+    <div id="comments-section">
+        <h2>Comments</h2>
+        <ul id="comments-list"></ul>
+        <form id="comment-form">
+            <input type="text" id="name-input" placeholder="Your Name" required>
+            <input type="text" id="comment-input" placeholder="Add a comment..." required>
+            <button type="submit" id="add-comment-btn">Add Comment</button>
+        </form>
     </div>
 
-
-    
-  <div id="toast-container" class="toast-container"></div>
- 
-    <!--The main section-->
-   <div id="single-blog">
-     <!-- <a  href="../index.html"><img src="../images/back.png"></a> -->
-      <div id="title">
-
-      </div>
-      
-      <div id="blog-image">
-        <p><span style="color:black">By:</span> <a id="author"></a>
-            </p>
-            <p><span style="color:black">PublishedAt:</span> <a id="date"></a></p>
-        
-        
-      </div>
-      <div id="content">
-
-      </div>
-
-      
-   </div>
+    <!-- Like Section -->
+    <div id="like-section">
+        <button id="like-btn">Like</button>
+        <p id="like-count">0 Likes</p>
+    </div>
+</div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/toastify-js/1.11.1/toastify.min.js"></script>
 <script>
-  document.addEventListener("DOMContentLoaded",async()=>{
-   try{
-    const queryParams = new URLSearchParams(window.location.search);
-    const id = queryParams.get("id");
-    const blogContainer = document.getElementById('blog-container');
-      const response = await fetch(`https://brand-backend-zqib.onrender.com/blog/${id}`,{
-        method: 'GET',
-        
-      })
 
-      console.log(response);
-      if(!response.ok){
-        throw new Error(`failed to fetch`);
-      }
+document.addEventListener("DOMContentLoaded", async () => {
+    try {
+        const queryParams = new URLSearchParams(window.location.search);
+        const id = queryParams.get("id");
 
-    const blogData = await response.json();
-     const blogObj = blogData.data;
-      console.log(blogData);
+        const response = await fetch(`http://localhost:4000/blog/${id}`, {
+            method: 'GET'
+        });
 
-    document.getElementById("title").innerText = blogObj.title;
-      // document.getElementById("author").innerText = blogObj.author;
-    document.getElementById("content").innerText = blogObj.content;
-    // //   // document.getElementById("date").innerText = new Date(blogObj.publishedDate).toLocaleDateString('en-US');
-    const blogImage = document.getElementById('blog-image');
-    const imageElement = document.createElement('img');
-    imageElement.src = `${blogObj.image}`;
-      blogImage.appendChild(imageElement);
-    }catch(error){
-       console.log(error);
+        if (!response.ok) {
+            throw new Error(`Failed to fetch blog post`);
+        }
+
+        const blogData = await response.json();
+        const blogObj = blogData.data;
+
+        // Update the blog content
+        document.getElementById("title").innerText = blogObj.title;
+        document.getElementById("author").innerText = blogObj.author;
+        document.getElementById("date").innerText = new Date(blogObj.publishedAt).toLocaleDateString('en-US');
+        document.getElementById("content").innerText = blogObj.content;
+
+        // Display blog image
+        const blogImage = document.getElementById('blog-image');
+        const imageElement = document.createElement('img');
+        imageElement.src = blogObj.image;
+        blogImage.appendChild(imageElement);
+
+        // Add event listener for submitting the comment form
+        const commentForm = document.getElementById("comment-form");
+        commentForm.addEventListener("submit", async (event) => {
+            event.preventDefault(); // Prevent default form submission
+
+            const nameInput = document.getElementById("name-input").value.trim();
+            const commentInput = document.getElementById("comment-input").value.trim();
+
+            if (nameInput === "" || commentInput === "") {
+                return; // Skip if name or comment input is empty
+            }
+
+            const commentData = {
+                name: nameInput,
+                comment: commentInput
+            };
+
+            const commentResponse = await fetch(`http://localhost:4000/blog/${id}/comments`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(commentData)
+            });
+
+            if (commentResponse.ok) {
+                // Clear the input fields
+                document.getElementById("name-input").value = "";
+                document.getElementById("comment-input").value = "";
+                // Fetch updated comments and render them
+                fetchAndRenderComments(id);
+            } else {
+                throw new Error(`Failed to add comment`);
+            }
+        });
+
+        // Add event listener for liking the post
+        const likeBtn = document.getElementById("like-btn");
+        likeBtn.addEventListener("click", async () => {
+            const likeResponse = await fetch(`http://localhost:4000/blog/${id}/like`, {
+                method: 'POST'
+            });
+
+            if (likeResponse.ok) {
+                // Fetch and display the updated like count
+                fetchAndDisplayLikes(id);
+            } else {
+                throw new Error(`Failed to like the post`);
+            }
+        });
+
+        // Fetch and display initial likes count
+        fetchAndDisplayLikes(id);
+
+        // Fetch and display comments
+        fetchAndRenderComments(id);
+    } catch (error) {
+        console.error('Error:', error.message);
+        // Display error message using Toastify
+        Toastify({
+            text: 'Failed to load blog post',
+            duration: 3000,
+            close: true,
+            gravity: 'bottom',
+            position: 'right',
+            backgroundColor: 'red'
+        }).showToast();
     }
-    
-  });
-// 
+});
+
+async function fetchAndDisplayLikes(id) {
+    try {
+        const likeResponse = await fetch(`http://localhost:4000/blog/${id}/likes`);
+        const likeData = await likeResponse.json();
+        const likeCount = likeData.likes || 0;
+        document.getElementById("like-count").textContent = `${likeCount} Likes`;
+    } catch (error) {
+        console.error('Error fetching likes:', error.message);
+    }
+}
+
+async function fetchAndRenderComments(id) {
+    try {
+        const commentsResponse = await fetch(`http://localhost:4000/blog/${id}/comments`);
+        const commentsData = await commentsResponse.json();
+
+        const commentsList = document.getElementById("comments-list");
+        commentsList.innerHTML = ""; // Clear previous comments
+
+        commentsData.comments.forEach(comment => {
+            const commentItem = document.createElement("li");
+            commentItem.textContent = `${comment.name}: ${comment.text}`;
+            commentsList.appendChild(commentItem);
+        });
+    } catch (error) {
+        console.error('Error fetching comments:', error.message);
+    }
+}
+
 
 </script>
 
