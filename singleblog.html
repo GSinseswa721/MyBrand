@@ -184,6 +184,201 @@ async function fetchAndRenderComments(id) {
 }
 
 
+document.addEventListener('DOMContentLoaded', async () => {
+  try {
+    const queryParams = new URLSearchParams(window.location.search);
+    const id = queryParams.get("id");
+    const noCommentMessage = document.getElementById('no-comment')
+
+    if (!id) {
+      console.error("Blog post ID is missing from URL parameters");
+      return;
+    }
+
+    const commentsContainer = document.getElementById('comment-container');
+    const response = await fetch(`http://localhost:4000/blog/blogs/${id}/comments`, {
+      method: 'GET',
+    });
+
+    if (!response.ok) {
+      console.error('Failed to fetch comments');
+      return;
+    }
+    
+    const commentData = await response.json();
+    console.log(commentData);
+    const comments = commentData.comments;
+
+    if (!comments || comments.length === 0) {
+      console.log("No comments found for this blog post");
+      return;
+    }
+    
+    comments.forEach(commentObj => {
+      let html = `
+          <div class="comments">
+            <div class="author">${commentObj.name}</div>
+            <div class="ucomment">${commentObj.comment}</div>
+            <div class="date">${new Date(commentObj.date).toLocaleDateString('en-US')}</div>
+            
+          </div>
+          
+      `
+
+      commentsContainer.innerHTML += html;
+    });
+
+    
+  } catch (error) {
+    console.log(error);
+  }
+});
+
+//to get likes
+
+
+
+
+
+
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    const commentsList = document.getElementById('comments-list');
+
+    // Function to fetch and display comments
+    const fetchComments = async () => {
+        try {
+            const response = await fetch('http://localhost:4000/blog/${id}/comments');
+            const comments = await response.json();
+
+            // Clear existing comments
+            commentsList.innerHTML = '';
+
+            // Populate comments
+            comments.forEach(comment => {
+                const li = document.createElement('li');
+                li.textContent = `${comment.name}: ${comment.comment}`;
+                commentsList.appendChild(li);
+            });
+        } catch (error) {
+            console.error('Error fetching comments:', error);
+        }
+    };
+
+    // Fetch comments when the page loads
+    fetchComments();
+
+    // Event listener for comment form submission
+    const commentForm = document.getElementById('comment-form');
+    commentForm.addEventListener('submit', async (event) => {
+        event.preventDefault();
+
+        const nameInput = document.getElementById('name-input');
+        const commentInput = document.getElementById('comment-input');
+
+        const newComment = {
+            name: nameInput.value,
+            comment: commentInput.value
+        };
+
+        try {
+            const response = await fetch('http://localhost:4000/blog/66178ce4b9622ef6044bd79e/comments', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(newComment)
+            });
+
+            if (response.ok) {
+                // If comment is successfully added, fetch and display updated comments
+                fetchComments();
+                nameInput.value = '';
+                commentInput.value = '';
+            } else {
+                console.error('Failed to add comment');
+            }
+        } catch (error) {
+            console.error('Error adding comment:', error);
+        }
+    });
+});
+
+
+// async function fetchAndDisplayLikes(blogId) {
+//   try {
+//     const response = await fetch(`http://localhost:4000/blog/blogs/${id}/likes`);
+
+//     if (!response.ok) {
+//       throw new Error(`Error fetching likes: ${response.statusText}`);
+//     }
+
+//     const data = await response.json();
+//     const likesCount = data.likes;
+
+//     // Update the UI to display the likes count
+//     document.getElementById('like-btn').innerText = likesCount.toString();
+//   } catch (error) {
+//     console.error('Error fetching likes:', error.message);
+//     // Handle the error gracefully, e.g., display a message to the user
+//     // Optionally, you can retry fetching or implement other error-handling logic
+//   }
+// }
+
+
+async function fetchAndDisplayLikes(blogId) {
+    try {
+        const response = await fetch(`http://localhost:4000/blog/blogs/${blogId}/likes`);
+
+        if (!response.ok) {
+            throw new Error(`Error fetching likes: ${response.statusText}`);
+        }
+
+        const likesData = await response.json();
+        const likeCount = likesData.likes; // Assuming the response contains a 'likes' property
+
+        // Update the like count in the UI
+        const likeCountElement = document.getElementById('like-count');
+        likeCountElement.textContent = `${likeCount} Likes`;
+    } catch (error) {
+        console.error('Error fetching likes:', error);
+        // Handle the error (e.g., display an error message)
+    }
+}
+
+
+
+// Usage example:
+const blogId = '66178ce4b9622ef6044bd79e'; // Replace with your blog ID
+fetchAndDisplayLikes(blogId);
+
+
+// success message
+  function showSuccessMessage(message) {
+  Toastify({
+      text: message || "You successfully added Blog!",
+      duration: 3000,
+      close: true,
+      backgroundColor:"green",
+      className: "toastify-success"
+  }).showToast();
+}
+
+// Function to show error message
+function showErrorMessage(message) {
+  Toastify({
+      text: message || "Error: Something went wrong!",
+      duration: 3000,
+      close: true,
+      backgroundColor:"red",
+      className: "toastify-error"
+  }).showToast();
+}
+
+
+
+
 </script>
 
 </body>
