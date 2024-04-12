@@ -51,6 +51,11 @@
         <button id="like-btn">Like</button>
         <p id="like-count">0 Likes</p>
     </div>
+
+    <div id="comment-container">
+        <!-- Comments will be dynamically inserted here -->
+    </div>
+    
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/toastify-js/1.11.1/toastify.min.js"></script>
@@ -61,7 +66,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         const queryParams = new URLSearchParams(window.location.search);
         const id = queryParams.get("id");
 
-        const response = await fetch(`http://localhost:4000/blog/${id}`, {
+        const response = await fetch(`https://brand-backend-zqib.onrender.com/blog/${id}`, {
             method: 'GET'
         });
 
@@ -101,7 +106,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                 comment: commentInput
             };
 
-            const commentResponse = await fetch(`http://localhost:4000/blog/${id}/comments`, {
+            const commentResponse = await fetch(`https://brand-backend-zqib.onrender.com/blog/${id}/comments`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -123,7 +128,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         // Add event listener for liking the post
         const likeBtn = document.getElementById("like-btn");
         likeBtn.addEventListener("click", async () => {
-            const likeResponse = await fetch(`http://localhost:4000/blog/${id}/like`, {
+            const likeResponse = await fetch(`https://brand-backend-zqib.onrender.com/blog/${id}/like`, {
                 method: 'POST'
             });
 
@@ -156,7 +161,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
 async function fetchAndDisplayLikes(id) {
     try {
-        const likeResponse = await fetch(`http://localhost:4000/blog/${id}/likes`);
+        const likeResponse = await fetch(`https://brand-backend-zqib.onrender.com/blog/${id}/likes`);
         const likeData = await likeResponse.json();
         const likeCount = likeData.likes || 0;
         document.getElementById("like-count").textContent = `${likeCount} Likes`;
@@ -167,7 +172,7 @@ async function fetchAndDisplayLikes(id) {
 
 async function fetchAndRenderComments(id) {
     try {
-        const commentsResponse = await fetch(`http://localhost:4000/blog/${id}/comments`);
+        const commentsResponse = await fetch(`https://brand-backend-zqib.onrender.com/blog/${id}/comments`);
         const commentsData = await commentsResponse.json();
 
         const commentsList = document.getElementById("comments-list");
@@ -196,7 +201,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 
     const commentsContainer = document.getElementById('comment-container');
-    const response = await fetch(`http://localhost:4000/blog/blogs/${id}/comments`, {
+    const response = await fetch(`https://brand-backend-zqib.onrender.com/blog/blogs/${id}/comments`, {
       method: 'GET',
     });
 
@@ -207,27 +212,26 @@ document.addEventListener('DOMContentLoaded', async () => {
     
     const commentData = await response.json();
     console.log(commentData);
-    const comments = commentData.comments;
+    const comment = commentData.comments;
 
-    if (!comments || comments.length === 0) {
-      console.log("No comments found for this blog post");
-      return;
-    }
-    
-    comments.forEach(commentObj => {
-      let html = `
-          <div class="comments">
-            <div class="author">${commentObj.name}</div>
-            <div class="ucomment">${commentObj.comment}</div>
-            <div class="date">${new Date(commentObj.date).toLocaleDateString('en-US')}</div>
-            
-          </div>
-          
-      `
+    if (!commentData.data || !Array.isArray(commentData.data) || commentData.data.length === 0) {
+            console.log("No comments found for this blog post");
+            return;
+        }
 
-      commentsContainer.innerHTML += html;
-    });
+        const comments = commentData.data;
 
+        comments.forEach(commentObj => {
+            let html = `
+                <div class="comments">
+                    <div class="author">${commentObj.name}</div>
+                    <div class="ucomment">${commentObj.comment}</div>
+                    <div class="date">${new Date(commentObj.createdAt).toLocaleDateString('en-US')}</div>
+                </div>
+            `;
+
+            commentsContainer.innerHTML += html;
+        });
     
   } catch (error) {
     console.log(error);
@@ -237,34 +241,116 @@ document.addEventListener('DOMContentLoaded', async () => {
 //to get likes
 
 
+document.addEventListener('DOMContentLoaded', async () => {
+    try {
+        const queryParams = new URLSearchParams(window.location.search);
+        const id = queryParams.get("id");
+        const noCommentMessage = document.getElementById('no-comment');
 
-
-
-
-
-
-document.addEventListener('DOMContentLoaded', () => {
-    const commentsList = document.getElementById('comments-list');
-
-    // Function to fetch and display comments
-    const fetchComments = async () => {
-        try {
-            const response = await fetch('http://localhost:4000/blog/${id}/comments');
-            const comments = await response.json();
-
-            // Clear existing comments
-            commentsList.innerHTML = '';
-
-            // Populate comments
-            comments.forEach(comment => {
-                const li = document.createElement('li');
-                li.textContent = `${comment.name}: ${comment.comment}`;
-                commentsList.appendChild(li);
-            });
-        } catch (error) {
-            console.error('Error fetching comments:', error);
+        if (!id) {
+            console.error("Blog post ID is missing from URL parameters");
+            return;
         }
-    };
+
+        const commentsContainer = document.getElementById('comment-container');
+
+        if (!commentsContainer) {
+            console.error("Comment container element not found");
+            return;
+        }
+
+        const response = await fetch(`https://brand-backend-zqib.onrender.com/blog/blogs/${id}/comments`, {
+            method: 'GET',
+        });
+
+        if (!response.ok) {
+            console.error('Failed to fetch comments');
+            return;
+        }
+        
+        const commentData = await response.json();
+        console.log(commentData);
+        const comments = commentData.data;
+
+        if (!comments || !Array.isArray(comments) || comments.length === 0) {
+            console.log("No comments found for this blog post");
+            return;
+        }
+        
+        comments.forEach(commentObj => {
+            let html = `
+                <div class="comments">
+                    <div class="author">${commentObj.name}</div>
+                    <div class="ucomment">${commentObj.comment}</div>
+                    <div class="date">${new Date(commentObj.createdAt).toLocaleDateString('en-US')}</div>
+                </div>
+            `;
+
+            commentsContainer.innerHTML += html;
+        });
+    } catch (error) {
+        console.error('Error fetching comments:', error);
+    }
+});
+
+
+
+
+
+
+// document.addEventListener('DOMContentLoaded', () => {
+//     const commentsList = document.getElementById('comments-list');
+
+//     // Function to fetch and display comments
+//     // const fetchComments = async () => {
+//     //     try {
+//     //         const response = await fetch('https://brand-backend-zqib.onrender.com/blog/blogs/${id}/comments');
+//     //         const comments = await response.json();
+
+//     //         // Clear existing comments
+//     //         commentsList.innerHTML = '';
+
+//     //         // Populate comments
+//     //         comments.forEach(comment => {
+//     //             const li = document.createElement('li');
+//     //             li.textContent = `${comment.name}: ${comment.comment}`;
+//     //             commentsList.appendChild(li);
+//     //         });
+//     //     } catch (error) {
+//     //         console.error('Error fetching comments:', error);
+//     //     }
+//     // };
+
+    const fetchComments = async () => {
+    try {
+        const response = await fetch(`https://brand-backend-zqib.onrender.com/blog/blogs/${id}/comments`);
+        
+        if (!response.ok) {
+            throw new Error('Failed to fetch comments');
+        }
+
+        const responseData = await response.json();
+
+        // Check if the response data is an array of comments
+        if (!Array.isArray(responseData)) {
+            throw new Error('Invalid comments data received');
+        }
+
+        const commentsList = document.getElementById('comments-list');
+        commentsList.innerHTML = ''; // Clear existing comments
+
+        // Populate comments
+        responseData.forEach(comment => {
+            const li = document.createElement('li');
+            li.textContent = `${comment.name}: ${comment.comment}`;
+            commentsList.appendChild(li);
+        });
+    } catch (error) {
+        console.error('Error fetching comments:', error);
+        // Handle the error, display a message, or perform other error-handling logic
+    }
+};
+
 
     // Fetch comments when the page loads
     fetchComments();
@@ -283,7 +369,7 @@ document.addEventListener('DOMContentLoaded', () => {
         };
 
         try {
-            const response = await fetch('http://localhost:4000/blog/66178ce4b9622ef6044bd79e/comments', {
+            const response = await fetch('https://brand-backend-zqib.onrender.com/blog/blogs/${id}/comments', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -303,7 +389,7 @@ document.addEventListener('DOMContentLoaded', () => {
             console.error('Error adding comment:', error);
         }
     });
-});
+
 
 
 // async function fetchAndDisplayLikes(blogId) {
@@ -329,7 +415,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 async function fetchAndDisplayLikes(blogId) {
     try {
-        const response = await fetch(`http://localhost:4000/blog/blogs/${blogId}/likes`);
+        const response = await fetch(`https://brand-backend-zqib.onrender.com/blog/blogs/${blogId}/likes`);
 
         if (!response.ok) {
             throw new Error(`Error fetching likes: ${response.statusText}`);
