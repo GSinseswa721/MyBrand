@@ -98,6 +98,7 @@ body{
  
 }
 .blog-card {
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -175,4 +176,189 @@ button{
     margin-left: 10rem;
     font-size: small;
     margin-bottom: 4rem;
+}
+@media only screen and (max-width:700px){
+    body{
+        position: relative;
+        background-color: #16132B;
+        height: 100rem;
+        color: #ffffff;
+    }
+    .sidebar{
+        position: relative;
+        background-color:black;
+        height: 100rem;
+        width: 12rem;
+        box-shadow:0px 1px 1px hsl(300, 9%, 90%) ;
+        right: 1rem;
+        align-items: center;
+        bottom: 1rem;
+    
+        
+    }
+    .dashboard-text-style{
+        padding-left: 2rem;
+        position: absolute;
+    }
+    .dashboard-text{
+        color: #ffffff;
+        font-size: larger;
+        left: 2rem;
+        gap: 1rem;
+    }
+    .nav-bar-dashboard{
+        height: 3rem;
+        width: 74.5rem;
+        background-color: #16132B;
+        box-shadow:0px 1px 1px hsl(300, 9%, 90%) ;
+    
+    }
+    .welcome-dashboard{
+        color: #ffffff;
+        font-size: large;
+    }
+    .notifaction-dashboard{
+    
+    }
+    .notification-icon{
+        width: 2.5rem;
+        height: 2.5rem;
+    }
+    .icons-image-dashboard{
+        width: 2.5rem;
+        height:2.5rem ;
+    }
+    .logo-dashboard{
+        width: 8rem;
+        height: 8rem;
+    }
+    .icons-middle-dashboard{
+        display: flex;
+        flex-direction: column;
+        padding-left: 2rem;
+        gap: 2rem;
+        padding-top: 4rem;
+    
+    }
+    .icon-bottom-dashboard{
+        position: absolute;
+       padding-top: 12rem;
+       left: 2rem;
+    }
+    .project-section{
+        position: relative;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: center;
+        top: 10rem;
+        left: 2rem;
+    
+    }
+    .project-section-description-blog-two{
+        display: flex;
+        flex-direction: column;
+    }
+    .project-section-button{
+        display: flex;
+        flex-direction: row;
+        width: 2rem;
+        height: 2rem;
+        gap: 5px;
+    
+        
+    }
+    .project-container-blogs{
+      display: flex;
+      flex-direction: column; 
+      border: 1px solid #dedaf7;
+      background-color:black;
+      height: 10rem;
+      border-radius: 5px;
+     
+    }
+    .blog-card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 10rem;
+        height: 20rem;
+        background-color:black;
+        box-shadow: 0 2px 5px rgba(226, 224, 224, 0.1);
+        border-radius: 10px;
+        gap: -5rem;
+        right: -20rem;
+    
+    
+    }
+    .blog-card  img{
+    position: relative;
+    height: 10rem;
+    width: 10rem;
+    
+    }
+    .flex{
+        display: flex;
+    
+    }
+    .flex.flex-col {
+        flex-direction: column;
+        
+      }
+      .w-grid {
+        min-width: 20rem;
+        max-width: 30rem;
+        margin-left:-57rem;
+      }
+    .update{
+        background-color: rgb(250, 80, 50);
+        border-radius: 5px;
+    }
+    .delete{
+        background-color: rgb(223, 12, 65);
+        border-radius: 5px;
+    }
+    .heading-blog-second{
+        padding: 1rem;
+        
+    }
+    .heading-blog{
+        font-size:larger;
+        position: absolute;
+        height: 2rem;
+        width: 20rem;
+        background-color: black;
+        margin-top: 7.7rem;
+    }
+    .create-a-blog{
+        position: absolute;
+        left: 66rem;
+        width: 8rem;
+        height: 3rem;
+        background-color: #90F8C0;
+        border-radius: 4px;
+        top: 6rem;
+    }
+    .create-a-blog a{
+     bottom: 12px;
+     position: absolute;
+     text-decoration: none;
+     color: white;
+     left: 1rem;
+    }
+    button{
+        color: white;
+    }
+    .readMore{
+        background-color: #90F8C0;
+        height: 1.5rem;
+        border-radius: 5px;
+        padding: 0.5rem;
+        margin-left: 10rem;
+        font-size: small;
+        margin-bottom: 4rem;
+    }
+
+    
+              
 }

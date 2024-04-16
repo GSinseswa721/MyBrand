@@ -346,27 +346,7 @@ a {
 .recent--blogs {
   margin-bottom: 20px;
 }
-/* table */
 
-
-
-table {
-  border-collapse: collapse;
-  width: 50% ;
-  border: 1px solid;
-  margin: auto;
-  @media screen and (max-width: 768px) {
-  width: 150 ;
-  border: 1px solid;
-  margin: auto;
-}
-  
-}
-
-td, th {
-  border: 1px solid #dddddd;
-  padding: 8px;
-}
 
 
 tr:nth-child(even) {
@@ -820,6 +800,21 @@ input[type="file" i] {
   }
   .pic{
     display: none;
+  }
+    .main--content {
+    width: 50%; 
+  }
+}
+@media only screen and (max-width:700px) {
+
+  .blog-form-body {
+    position: absolute;
+    right:7rem;
+  }
+  .blog-form-footer {
+    position: absolute;
+    margin-left:-8rem;
+    margin-top: 18rem;
   }
   
 }

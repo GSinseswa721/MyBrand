@@ -1,5 +1,4 @@
 body {
-    font-family: Arial, sans-serif;
     background-color: #16132B;
     color: white;
 }
@@ -10,6 +9,7 @@ body {
     padding: 20px;
     background-color: black;
     box-shadow: 0 2px 5px rgba(226, 224, 224, 0.1);
+    padding-left:-12rem;
 }
 
 h1 {
@@ -29,4 +29,38 @@ li {
 
 li:last-child {
     border-bottom: none;
+}
+
+@media only screen and (max-width:700px) {
+
+    .container {
+        max-width: 260px;
+        margin: 20px auto;
+        padding: 10px;
+        background-color: black;
+        box-shadow: 0 2px 5px rgba(226, 224, 224, 0.1);
+        left: -3rem;
+    }
+    
+    h1 {
+        text-align: center;
+        color: white;
+        font-size: smaller;
+    }
+    
+    ul {
+        list-style-type: none;
+        padding: 0;
+    }
+    
+    li {
+        padding: 5px;
+        border-bottom: 1px solid #ddd;
+        font-size: smaller;
+    }
+    
+    li:last-child {
+        border-bottom: none;
+    }
+
 }

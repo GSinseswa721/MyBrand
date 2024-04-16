@@ -40,7 +40,7 @@
         <h2 class="comment">Comments</h2>
         <ul id="comments-list"></ul>
         <form id="comment-form">
-            <input type="text" id="name-input" placeholder="Your Name" required>
+            <input type="text" id="name-input" placeholder="Your Name" required><br>
             <input type="text" id="comment-input" placeholder="Add a comment..." required>
             <button type="submit" id="add-comment-btn">Add Comment</button>
         </form>
@@ -79,8 +79,8 @@ document.addEventListener("DOMContentLoaded", async () => {
 
         // Update the blog content
         document.getElementById("title").innerText = blogObj.title;
-        document.getElementById("author").innerText = blogObj.author;
-        document.getElementById("date").innerText = new Date(blogObj.publishedAt).toLocaleDateString('en-US');
+        // document.getElementById("author").innerText = blogObj.author;
+        // document.getElementById("date").innerText = new Date(blogObj.publishedAt).toLocaleDateString('en-US');
         document.getElementById("content").innerText = blogObj.content;
 
         // Display blog image
@@ -226,7 +226,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                 <div class="comments">
                     <div class="author">${commentObj.name}</div>
                     <div class="ucomment">${commentObj.comment}</div>
-                    <div class="date">${new Date(commentObj.createdAt).toLocaleDateString('en-US')}</div>
+
                 </div>
             `;
 
@@ -332,9 +332,9 @@ document.addEventListener('DOMContentLoaded', async () => {
         const responseData = await response.json();
 
         // Check if the response data is an array of comments
-        if (!Array.isArray(responseData)) {
-            throw new Error('Invalid comments data received');
-        }
+        // if (!Array.isArray(responseData)) {
+        //     throw new Error('Invalid comments data received');
+        // }
 
         const commentsList = document.getElementById('comments-list');
         commentsList.innerHTML = ''; // Clear existing comments

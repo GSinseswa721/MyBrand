@@ -388,3 +388,43 @@ top: 20rem;
     left: 1rem;
     bottom: 5px;
 }
+@media only screen and (max-width:700px) {
+    .sidebar{
+        position: absolute;
+        background-color:black;
+        height: 100rem;
+        width: 5rem;
+        box-shadow:0px 1px 1px hsl(300, 9%, 90%) ;
+        left: 0;
+        margin-top: -3rem;
+        margin-left: -0.5rem;
+        
+    }
+    .dashboard-text{
+        color: #ffffff;
+        font-size: small;
+        margin-left:0.4rem;
+        gap: 1rem;
+    }
+    .dashboard-text-style{
+        font-size: small;
+     
+    }
+    .logo-dashboard{
+        width: 6rem;
+        height: 8rem;
+    }
+    .icons-image-dashboard{
+        width: 1.5rem;
+        height:1.5rem ;
+        margin-right:-30px;
+    }
+    .nav-bar-dashboard{
+        height: 4rem;
+        width: 74.5rem;
+        background-color: #16132B;
+        box-shadow:0px 1px 1px hsl(300, 9%, 90%) ;
+        margin-left: 2rem;
+        margin-top: -1rem;
+    }
+}
